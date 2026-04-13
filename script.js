@@ -184,13 +184,15 @@ const checkerFromInput = document.getElementById('checkerFromInput');
 const checkerToInput = document.getElementById('checkerToInput');
 const checkerDayInput = document.getElementById('checkerDayInput');
 const nonRevCheckerResult = document.getElementById('nonRevCheckerResult');
+const nonRevCheckerTip = document.getElementById('nonRevCheckerTip');
 
 if (
   nonRevCheckerForm &&
   checkerFromInput &&
   checkerToInput &&
   checkerDayInput &&
-  nonRevCheckerResult
+  nonRevCheckerResult &&
+  nonRevCheckerTip
 ) {
   nonRevCheckerForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -200,27 +202,63 @@ if (
     const day = checkerDayInput.value;
 
     if (!from || !to || !day) {
-      nonRevCheckerResult.classList.remove('nr-high', 'nr-medium', 'nr-low');
+      nonRevCheckerResult.classList.remove('nr-high', 'nr-medium', 'nr-low', 'nr-loading', 'is-visible');
       nonRevCheckerResult.textContent = 'Please fill in From, To, and Day of Week.';
+      nonRevCheckerTip.classList.remove('is-visible');
+      nonRevCheckerTip.textContent = 'Tip: complete all fields first to get tailored guidance.';
       return;
     }
 
-    let chanceText = '';
-    let chanceClass = '';
+    const submitButton = nonRevCheckerForm.querySelector('button[type="submit"]');
+    const originalButtonLabel = submitButton ? submitButton.textContent : '';
 
-    if (day === 'Tue' || day === 'Wed') {
-      chanceText = 'High chance: midweek routes are best';
-      chanceClass = 'nr-high';
-    } else if (day === 'Mon' || day === 'Thu') {
-      chanceText = 'Medium chance: depends on load';
-      chanceClass = 'nr-medium';
-    } else {
-      chanceText = 'Low chance: weekends are difficult';
-      chanceClass = 'nr-low';
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Checking...';
     }
 
-    nonRevCheckerResult.classList.remove('nr-high', 'nr-medium', 'nr-low');
-    nonRevCheckerResult.classList.add(chanceClass);
-    nonRevCheckerResult.textContent = `Route: ${from} to ${to} on ${day}. ${chanceText}.`;
+    nonRevCheckerResult.classList.remove('nr-high', 'nr-medium', 'nr-low', 'is-visible');
+    nonRevCheckerResult.classList.add('nr-loading');
+    nonRevCheckerResult.textContent = `Analyzing ${from} to ${to} for ${day}...`;
+
+    nonRevCheckerTip.classList.remove('is-visible');
+    nonRevCheckerTip.textContent = 'Tip: checking day patterns and likely standby pressure.';
+
+    let chanceText = '';
+    let chanceClass = '';
+    let tipText = '';
+
+    if (day === 'Tue' || day === 'Wed') {
+      chanceText = 'High chance: multiple flights + low loads expected';
+      chanceClass = 'nr-high';
+      tipText = 'Fly early morning for best odds';
+    } else if (day === 'Mon' || day === 'Thu') {
+      chanceText = 'Medium: check backup flights';
+      chanceClass = 'nr-medium';
+      tipText = 'List multiple flights and monitor loads';
+    } else {
+      chanceText = 'Low: expect to get stuck, have a backup plan';
+      chanceClass = 'nr-low';
+      tipText = 'Avoid weekends and holidays';
+    }
+
+    setTimeout(() => {
+      nonRevCheckerResult.classList.remove('nr-loading', 'nr-high', 'nr-medium', 'nr-low', 'is-visible');
+      nonRevCheckerResult.classList.add(chanceClass);
+      nonRevCheckerResult.textContent = `Route: ${from} to ${to} on ${day}. ${chanceText}.`;
+
+      // Restart fade animation each check
+      void nonRevCheckerResult.offsetWidth;
+      nonRevCheckerResult.classList.add('is-visible');
+
+      nonRevCheckerTip.textContent = `Tip: ${tipText}.`;
+      void nonRevCheckerTip.offsetWidth;
+      nonRevCheckerTip.classList.add('is-visible');
+
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonLabel;
+      }
+    }, 700);
   });
 }

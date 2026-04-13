@@ -2832,7 +2832,7 @@ a:hover {
   .nonrev-home-page .nr-finder {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 0.55rem;
+    gap: 0.6rem;
   }
 
   .nonrev-home-page .nr-finder label {
@@ -2845,42 +2845,73 @@ a:hover {
 
   .nonrev-home-page .nr-finder input {
     border: 1px solid rgba(148, 163, 184, 0.35);
-    border-radius: 10px;
+    border-radius: 14px;
     background: rgba(9, 15, 30, 0.9);
     color: #f8fbff;
-    padding: 0.72rem 0.85rem;
+    padding: 0.82rem 0.95rem;
     font-size: 0.95rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   }
 
   .nonrev-home-page .nr-finder select {
     border: 1px solid rgba(148, 163, 184, 0.35);
-    border-radius: 10px;
+    border-radius: 14px;
     background: rgba(9, 15, 30, 0.9);
     color: #f8fbff;
-    padding: 0.72rem 0.85rem;
+    padding: 0.82rem 0.95rem;
     font-size: 0.95rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .nonrev-home-page .nr-finder input:focus,
+  .nonrev-home-page .nr-finder select:focus {
+    outline: none;
+    border-color: rgba(94, 214, 255, 0.85);
+    box-shadow: 0 0 0 3px rgba(94, 214, 255, 0.18);
+    transform: translateY(-1px);
   }
 
   .nonrev-home-page .nr-finder button {
     margin-top: 0.35rem;
     border: 0;
-    border-radius: 10px;
-    padding: 0.8rem 1rem;
+    border-radius: 14px;
+    padding: 0.88rem 1rem;
     font-size: 0.95rem;
     font-weight: 700;
     color: #041021;
     background: linear-gradient(135deg, #5ed6ff, #8de2ff);
     cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  }
+
+  .nonrev-home-page .nr-finder button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(94, 214, 255, 0.22);
+  }
+
+  .nonrev-home-page .nr-finder button:disabled {
+    opacity: 0.72;
+    cursor: wait;
   }
 
   .nonrev-home-page .nr-result {
-    margin-top: 0.9rem;
+    margin-top: 1rem;
     border: 1px solid rgba(94, 214, 255, 0.35);
-    border-radius: 10px;
-    padding: 0.75rem;
+    border-radius: 14px;
+    padding: 0.85rem;
     background: rgba(15, 39, 58, 0.45);
     color: #d5f4ff;
     line-height: 1.62;
+  }
+
+  .nonrev-home-page .nr-result.nr-loading {
+    border-color: rgba(125, 211, 252, 0.5);
+    background: rgba(12, 30, 48, 0.6);
+    color: #dbeafe;
+  }
+
+  .nonrev-home-page .nr-result.is-visible {
+    animation: nrFadeIn 0.35s ease;
   }
 
   .nonrev-home-page .nr-result.nr-high {
@@ -2899,6 +2930,32 @@ a:hover {
     border-color: rgba(248, 113, 113, 0.5);
     background: rgba(127, 29, 29, 0.32);
     color: #fee2e2;
+  }
+
+  .nonrev-home-page .nr-tip {
+    margin-top: 0.65rem;
+    border: 1px dashed rgba(148, 163, 184, 0.35);
+    border-radius: 12px;
+    padding: 0.7rem 0.8rem;
+    color: #c6d3e8;
+    background: rgba(9, 15, 30, 0.6);
+    font-size: 0.9rem;
+  }
+
+  .nonrev-home-page .nr-tip.is-visible {
+    animation: nrFadeIn 0.35s ease;
+  }
+
+  @keyframes nrFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .nonrev-home-page .nr-affiliate {
