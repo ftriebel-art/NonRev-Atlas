@@ -606,3 +606,140 @@ if ('IntersectionObserver' in window && luxuryRevealTargets.length && !prefersRe
 
   luxuryRevealTargets.forEach(target => revealObserver.observe(target));
 }
+
+/* ================================================
+   PREMIUM EMAIL SIGNUP FLOW
+   ================================================ */
+
+// Enhanced email signup handling for all forms (hero, mid, final)
+document.querySelectorAll('[data-email-signup]').forEach(form => {
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const emailInput = this.querySelector('input[type="email"]');
+    const submitButton = this.querySelector('button[type="submit"]');
+    const location = this.dataset.emailSignup;
+    
+    if (!emailInput || !submitButton) return;
+
+    const email = emailInput.value.trim();
+    const originalText = submitButton.textContent;
+    
+    // Optimistic success UX
+    submitButton.textContent = '✓ Got it!';
+    submitButton.disabled = true;
+    submitButton.style.opacity = '0.7';
+    emailInput.style.opacity = '0.6';
+
+    // Simulate API call (future: replace with actual backend)
+    setTimeout(() => {
+      // Track signup location
+      console.log(`User signed up: ${email} from ${location}`);
+      
+      // Log to localStorage for basic analytics
+      const signups = JSON.parse(localStorage.getItem('nonrev_signups') || '[]');
+      signups.push({
+        email,
+        location,
+        timestamp: new Date().toISOString()
+      });
+      localStorage.setItem('nonrev_signups', JSON.stringify(signups));
+
+      // Revert forms after delay
+      setTimeout(() => {
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+        submitButton.style.opacity = '';
+        emailInput.style.opacity = '';
+        form.reset();
+      }, 2500);
+    }, 600);
+  });
+});
+
+/* ================================================
+   DEAL URGENCY COUNTDOWN
+   ================================================ */
+
+function formatCountdownTime() {
+  const now = new Date();
+  const expiryTimes = [28, 4, 12, 6]; // hours for each deal
+  
+  expiryTimes.forEach((hours, index) => {
+    const dealBadges = document.querySelectorAll('.deal-urgency-badge');
+    if (dealBadges[index]) {
+      const expiryTime = new Date(now.getTime() + hours * 60 * 60 * 1000);
+      const hoursLeft = Math.floor((expiryTime - now) / (1000 * 60 * 60));
+      dealBadges[index].textContent = `Expires in ${hoursLeft}h`;
+    }
+  });
+}
+
+// Update countdown on page load
+formatCountdownTime();
+
+// Update every hour
+setInterval(formatCountdownTime, 60 * 60 * 1000);
+
+/* ================================================
+   MOBILE MENU ENHANCEMENTS
+   ================================================ */
+
+const menuToggle = document.querySelector('[data-menu-toggle]');
+const premiumNav = document.querySelector('.site-nav');
+
+if (menuToggle && premiumNav) {
+  menuToggle.addEventListener('click', () => {
+    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', !isExpanded);
+    premiumNav.classList.toggle('nav-expanded');
+  });
+
+  // Close menu when clicking nav links
+  document.querySelectorAll('.site-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.setAttribute('aria-expanded', 'false');
+      premiumNav.classList.remove('nav-expanded');
+    });
+  });
+}
+
+/* ================================================
+   HEADER SCROLL DETECTION
+   ================================================ */
+
+const header = document.querySelector('.site-header');
+let lastScrollY = 0;
+
+window.addEventListener('scroll', () => {
+  const currentScrollY = window.scrollY;
+  
+  if (currentScrollY > 100) {
+    header.setAttribute('data-scrolled', 'true');
+  } else {
+    header.removeAttribute('data-scrolled');
+  }
+  
+  lastScrollY = currentScrollY;
+}, { passive: true });
+
+/* ================================================
+   BUTTON TRACKING (FOR AFFILIATE LINKS)
+   ================================================ */
+
+document.querySelectorAll('[target="_blank"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const url = link.href;
+    const text = link.textContent;
+    console.log(`Clicked affiliate link: ${text} → ${url}`);
+    
+    // Track in localStorage
+    const clicks = JSON.parse(localStorage.getItem('nonrev_clicks') || '[]');
+    clicks.push({
+      link: url,
+      text,
+      timestamp: new Date().toISOString()
+    });
+    localStorage.setItem('nonrev_clicks', JSON.stringify(clicks));
+  });
+});
