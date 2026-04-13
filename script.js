@@ -177,3 +177,50 @@ if (flightFinderForm && fromInput && toInput && flightFinderResult) {
     flightFinderResult.textContent = `Route: ${from} to ${to}. Advice: ${advice}`;
   });
 }
+
+// NonRev Flight Checker day-based availability output
+const nonRevCheckerForm = document.getElementById('nonRevCheckerForm');
+const checkerFromInput = document.getElementById('checkerFromInput');
+const checkerToInput = document.getElementById('checkerToInput');
+const checkerDayInput = document.getElementById('checkerDayInput');
+const nonRevCheckerResult = document.getElementById('nonRevCheckerResult');
+
+if (
+  nonRevCheckerForm &&
+  checkerFromInput &&
+  checkerToInput &&
+  checkerDayInput &&
+  nonRevCheckerResult
+) {
+  nonRevCheckerForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const from = checkerFromInput.value.trim().toUpperCase();
+    const to = checkerToInput.value.trim().toUpperCase();
+    const day = checkerDayInput.value;
+
+    if (!from || !to || !day) {
+      nonRevCheckerResult.classList.remove('nr-high', 'nr-medium', 'nr-low');
+      nonRevCheckerResult.textContent = 'Please fill in From, To, and Day of Week.';
+      return;
+    }
+
+    let chanceText = '';
+    let chanceClass = '';
+
+    if (day === 'Tue' || day === 'Wed') {
+      chanceText = 'High chance: midweek routes are best';
+      chanceClass = 'nr-high';
+    } else if (day === 'Mon' || day === 'Thu') {
+      chanceText = 'Medium chance: depends on load';
+      chanceClass = 'nr-medium';
+    } else {
+      chanceText = 'Low chance: weekends are difficult';
+      chanceClass = 'nr-low';
+    }
+
+    nonRevCheckerResult.classList.remove('nr-high', 'nr-medium', 'nr-low');
+    nonRevCheckerResult.classList.add(chanceClass);
+    nonRevCheckerResult.textContent = `Route: ${from} to ${to} on ${day}. ${chanceText}.`;
+  });
+}

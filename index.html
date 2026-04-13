@@ -86,6 +86,38 @@
       </div>
     </section>
 
+    <section class="nr-section" id="nonrev-checker">
+      <div class="nr-shell">
+        <h2>Check Your NonRev Chances</h2>
+        <div class="nr-card">
+          <form class="nr-finder nr-checker-form" id="nonRevCheckerForm">
+            <label for="checkerFromInput">From</label>
+            <input id="checkerFromInput" name="checkerFrom" type="text" placeholder="e.g. JFK" required />
+
+            <label for="checkerToInput">To</label>
+            <input id="checkerToInput" name="checkerTo" type="text" placeholder="e.g. LAX" required />
+
+            <label for="checkerDayInput">Day of Week</label>
+            <select id="checkerDayInput" name="checkerDay" required>
+              <option value="">Select day</option>
+              <option value="Mon">Monday</option>
+              <option value="Tue">Tuesday</option>
+              <option value="Wed">Wednesday</option>
+              <option value="Thu">Thursday</option>
+              <option value="Fri">Friday</option>
+              <option value="Sat">Saturday</option>
+              <option value="Sun">Sunday</option>
+            </select>
+
+            <button type="submit">Check Availability</button>
+          </form>
+          <div id="nonRevCheckerResult" class="nr-result" aria-live="polite">
+            Enter your route and day to check non-rev availability guidance.
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="nr-section" id="monetization">
       <div class="nr-shell">
         <h2>Recommended Tool</h2>

@@ -2852,6 +2852,15 @@ a:hover {
     font-size: 0.95rem;
   }
 
+  .nonrev-home-page .nr-finder select {
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    border-radius: 10px;
+    background: rgba(9, 15, 30, 0.9);
+    color: #f8fbff;
+    padding: 0.72rem 0.85rem;
+    font-size: 0.95rem;
+  }
+
   .nonrev-home-page .nr-finder button {
     margin-top: 0.35rem;
     border: 0;
@@ -2872,6 +2881,24 @@ a:hover {
     background: rgba(15, 39, 58, 0.45);
     color: #d5f4ff;
     line-height: 1.62;
+  }
+
+  .nonrev-home-page .nr-result.nr-high {
+    border-color: rgba(74, 222, 128, 0.55);
+    background: rgba(20, 83, 45, 0.35);
+    color: #dcfce7;
+  }
+
+  .nonrev-home-page .nr-result.nr-medium {
+    border-color: rgba(250, 204, 21, 0.5);
+    background: rgba(113, 63, 18, 0.32);
+    color: #fef3c7;
+  }
+
+  .nonrev-home-page .nr-result.nr-low {
+    border-color: rgba(248, 113, 113, 0.5);
+    background: rgba(127, 29, 29, 0.32);
+    color: #fee2e2;
   }
 
   .nonrev-home-page .nr-affiliate {
