@@ -183,6 +183,7 @@ const nonRevCheckerForm = document.getElementById('nonRevCheckerForm');
 const checkerFromInput = document.getElementById('checkerFromInput');
 const checkerToInput = document.getElementById('checkerToInput');
 const checkerDayInput = document.getElementById('checkerDayInput');
+const checkerLoadInput = document.getElementById('checkerLoadInput');
 const nonRevCheckerResult = document.getElementById('nonRevCheckerResult');
 const nonRevCheckerTip = document.getElementById('nonRevCheckerTip');
 
@@ -191,6 +192,7 @@ if (
   checkerFromInput &&
   checkerToInput &&
   checkerDayInput &&
+  checkerLoadInput &&
   nonRevCheckerResult &&
   nonRevCheckerTip
 ) {
@@ -200,12 +202,22 @@ if (
     const from = checkerFromInput.value.trim().toUpperCase();
     const to = checkerToInput.value.trim().toUpperCase();
     const day = checkerDayInput.value;
+    const loadValue = checkerLoadInput.value.trim();
+    const parsedLoad = loadValue ? Number(loadValue) : null;
 
     if (!from || !to || !day) {
       nonRevCheckerResult.classList.remove('nr-high', 'nr-medium', 'nr-low', 'nr-loading', 'is-visible');
       nonRevCheckerResult.textContent = 'Please fill in From, To, and Day of Week.';
       nonRevCheckerTip.classList.remove('is-visible');
-      nonRevCheckerTip.textContent = 'Tip: complete all fields first to get tailored guidance.';
+      nonRevCheckerTip.textContent = 'Pro Tip: complete route and day first, then add load for sharper advice.';
+      return;
+    }
+
+    if (loadValue && (Number.isNaN(parsedLoad) || parsedLoad < 0 || parsedLoad > 100)) {
+      nonRevCheckerResult.classList.remove('nr-high', 'nr-medium', 'nr-low', 'nr-loading', 'is-visible');
+      nonRevCheckerResult.textContent = 'Estimated Load % must be a number between 0 and 100.';
+      nonRevCheckerTip.classList.remove('is-visible');
+      nonRevCheckerTip.textContent = 'Pro Tip: use rough estimates from app loads, then recheck closer to departure.';
       return;
     }
 
@@ -219,39 +231,53 @@ if (
 
     nonRevCheckerResult.classList.remove('nr-high', 'nr-medium', 'nr-low', 'is-visible');
     nonRevCheckerResult.classList.add('nr-loading');
-    nonRevCheckerResult.textContent = `Analyzing ${from} to ${to} for ${day}...`;
+    nonRevCheckerResult.textContent = `Building strategy for ${from} to ${to} on ${day}${parsedLoad !== null ? ` with ${parsedLoad}% estimated load` : ''}...`;
 
     nonRevCheckerTip.classList.remove('is-visible');
-    nonRevCheckerTip.textContent = 'Tip: checking day patterns and likely standby pressure.';
+    nonRevCheckerTip.textContent = 'Pro Tip: prioritizing load risk, day pattern, and backup options.';
 
-    let chanceText = '';
+    let strategyText = '';
     let chanceClass = '';
-    let tipText = '';
+    let proTipText = '';
 
-    if (day === 'Tue' || day === 'Wed') {
-      chanceText = 'High chance: multiple flights + low loads expected';
+    if (parsedLoad !== null) {
+      if (parsedLoad > 85) {
+        strategyText = 'High risk. Consider earlier flights or alternate routes.';
+        chanceClass = 'nr-low';
+        proTipText = 'Protect your trip with at least two backup flights and one alternate city option';
+      } else if (parsedLoad >= 60) {
+        strategyText = 'Moderate chance. List backup flights and monitor closely.';
+        chanceClass = 'nr-medium';
+        proTipText = 'Set load checks at 24h, 12h, and 3h before departure for better decision timing';
+      } else {
+        strategyText = 'Good chance. Still list multiple flights as backup.';
+        chanceClass = 'nr-high';
+        proTipText = 'Target the first departure bank to maximize same-day recovery options';
+      }
+    } else if (day === 'Tue' || day === 'Wed') {
+      strategyText = 'Good chance. Midweek generally improves standby outcomes.';
       chanceClass = 'nr-high';
-      tipText = 'Fly early morning for best odds';
+      proTipText = 'Even on strong days, keep one later departure bookmarked in case the first wave closes out';
     } else if (day === 'Mon' || day === 'Thu') {
-      chanceText = 'Medium: check backup flights';
+      strategyText = 'Moderate chance. Traffic swings can change quickly, so monitor closely.';
       chanceClass = 'nr-medium';
-      tipText = 'List multiple flights and monitor loads';
+      proTipText = 'Watch both direct and one-stop options to widen your recovery path';
     } else {
-      chanceText = 'Low: expect to get stuck, have a backup plan';
+      strategyText = 'Higher risk window. Weekend pressure can reduce standby success.';
       chanceClass = 'nr-low';
-      tipText = 'Avoid weekends and holidays';
+      proTipText = 'Shift to very early departures or nearby alternate airports when possible';
     }
 
     setTimeout(() => {
       nonRevCheckerResult.classList.remove('nr-loading', 'nr-high', 'nr-medium', 'nr-low', 'is-visible');
       nonRevCheckerResult.classList.add(chanceClass);
-      nonRevCheckerResult.textContent = `Route: ${from} to ${to} on ${day}. ${chanceText}.`;
+      nonRevCheckerResult.textContent = `Route: ${from} to ${to} on ${day}${parsedLoad !== null ? ` (${parsedLoad}% load)` : ''}. ${strategyText}`;
 
       // Restart fade animation each check
       void nonRevCheckerResult.offsetWidth;
       nonRevCheckerResult.classList.add('is-visible');
 
-      nonRevCheckerTip.textContent = `Tip: ${tipText}.`;
+      nonRevCheckerTip.textContent = `Pro Tip: ${proTipText}.`;
       void nonRevCheckerTip.offsetWidth;
       nonRevCheckerTip.classList.add('is-visible');
 

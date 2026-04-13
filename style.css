@@ -2944,6 +2944,10 @@ a:hover {
     font-size: 0.9rem;
   }
 
+  .nonrev-home-page .nr-checker-form {
+    gap: 0.62rem;
+  }
+
   .nonrev-home-page .nr-tip.is-visible {
     animation: nrFadeIn 0.35s ease;
   }
