@@ -2679,6 +2679,8 @@ a:hover {
     margin-bottom: 1.25rem;
   }
 
+}
+
   /* NonRev Insider homepage refresh */
   .nonrev-home-page {
     margin: 0;
@@ -2987,4 +2989,3 @@ a:hover {
       grid-template-columns: 1fr;
     }
   }
-}
