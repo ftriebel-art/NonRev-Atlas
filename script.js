@@ -425,3 +425,184 @@ if ('IntersectionObserver' in window && premiumRevealTargets.length && !prefersR
 
   premiumRevealTargets.forEach(target => premiumRevealObserver.observe(target));
 }
+
+// Current luxury homepage interactions
+const siteMenuToggle = document.querySelector('[data-menu-toggle]');
+const siteNav = document.getElementById('site-nav');
+const navDropdownToggle = document.querySelector('.nav-dropdown-toggle');
+const navDropdownParent = navDropdownToggle ? navDropdownToggle.closest('.has-dropdown') : null;
+
+if (siteMenuToggle && siteNav) {
+  siteMenuToggle.addEventListener('click', () => {
+    const isOpen = siteNav.classList.toggle('is-open');
+    siteMenuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+}
+
+if (navDropdownToggle && navDropdownParent) {
+  navDropdownToggle.addEventListener('click', e => {
+    e.preventDefault();
+    const isOpen = navDropdownParent.classList.toggle('is-open');
+    navDropdownToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  document.addEventListener('click', e => {
+    if (!navDropdownParent.contains(e.target)) {
+      navDropdownParent.classList.remove('is-open');
+      navDropdownToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
+const atlasDrawerItems = document.querySelectorAll('.atlas-drawer-stack .atlas-drawer');
+if (atlasDrawerItems.length) {
+  atlasDrawerItems.forEach(item => {
+    item.addEventListener('toggle', () => {
+      if (item.open) {
+        atlasDrawerItems.forEach(other => {
+          if (other !== item) {
+            other.open = false;
+          }
+        });
+      }
+    });
+  });
+}
+
+const tripBriefForm = document.querySelector('[data-trip-brief]');
+const tripBriefResult = document.querySelector('[data-trip-brief-result]');
+
+if (tripBriefForm && tripBriefResult) {
+  const tripBriefMap = {
+    'Beach escape': 'Look at San Juan, Tulum, and Mallorca first for the fastest mix of scenery, dining, and easy hotel browsing.',
+    'Food city': 'Start with Lisbon, Mexico City, Tokyo, or San Sebastian if the trip needs a memorable restaurant payoff.',
+    'Luxury weekend': 'Copenhagen, Paris, and Dubai work best when you want polished hotels, design, and high-touch experiences.',
+    'Culture-heavy trip': 'Rome, Kyoto, Istanbul, and Marrakech give you dense sightseeing without needing a complicated itinerary.',
+    'Nature reset': 'Vancouver, Cape Town, Bali, and Queenstown are strongest when the trip is really about scenery and slower pacing.'
+  };
+
+  tripBriefForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const formData = new FormData(tripBriefForm);
+    const origin = formData.get('origin');
+    const tripType = formData.get('tripType');
+    const budget = formData.get('budget');
+    const recommendation = tripBriefMap[tripType] || 'Start with cities that have direct flights, strong neighborhoods, and flexible hotel inventory.';
+
+    tripBriefResult.textContent = `${origin} travelers aiming for ${tripType?.toString().toLowerCase() || 'a smart trip'} under ${budget || 'a flexible budget'} should start here: ${recommendation}`;
+  });
+}
+
+const dealFilterButtons = document.querySelectorAll('[data-filter-group="home-deals"] .chip');
+const homeDealCards = document.querySelectorAll('.deals-grid .deal-card');
+
+if (dealFilterButtons.length && homeDealCards.length) {
+  dealFilterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const selectedFilter = button.getAttribute('data-filter');
+      dealFilterButtons.forEach(item => item.classList.remove('is-active'));
+      button.classList.add('is-active');
+
+      homeDealCards.forEach(card => {
+        const matches = selectedFilter === 'all' || card.getAttribute('data-category') === selectedFilter;
+        card.hidden = !matches;
+      });
+    });
+  });
+}
+
+const destinationGrid = document.querySelector('[data-destination-grid]');
+const destinationCount = document.querySelector('[data-destination-count]');
+const destinationRegionSelect = document.querySelector('[data-destination-region]');
+const destinationStyleSelect = document.querySelector('[data-destination-style]');
+const destinationResetButton = document.querySelector('[data-destination-reset]');
+
+if (destinationGrid && destinationCount && destinationRegionSelect && destinationStyleSelect) {
+  const destinationData = [
+    { name: 'Lisbon', region: 'Europe', style: 'Food', image: 'https://source.unsplash.com/featured/900x700/?lisbon,portugal', summary: 'Best for first-time Europe with food, design, and high visual payoff.', activity: 'Ride Tram 28 at golden hour and stay out late in Alfama.', place: 'Miradouro de Santa Luzia and the waterfront in Belem.', restaurant: 'Book a seafood dinner at Cervejaria Ramiro.', stay: 'Stay in Chiado or Principe Real for walkability.' },
+    { name: 'Tokyo', region: 'Asia', style: 'Food', image: 'https://source.unsplash.com/featured/900x700/?tokyo,japan', summary: 'Massive food upside, perfect service culture, and endlessly varied neighborhoods.', activity: 'Do a late-night ramen and cocktail circuit in Shinjuku.', place: 'Shibuya Sky, Asakusa, and teamLab for contrast.', restaurant: 'Prioritize sushi omakase or tempura counters early.', stay: 'Base in Shibuya or Ginza depending on pace.' },
+    { name: 'San Juan', region: 'North America', style: 'Beach', image: 'https://source.unsplash.com/featured/900x700/?san%20juan,puerto%20rico', summary: 'Easy island energy with beach access and strong city texture.', activity: 'Mix Old San Juan walking with a beach afternoon in Condado.', place: 'Castillo San Felipe del Morro and colorful old town streets.', restaurant: 'Find mofongo and elevated Puerto Rican tasting menus.', stay: 'Old San Juan for charm, Condado for convenience.' },
+    { name: 'Marrakech', region: 'Africa', style: 'Culture', image: 'https://source.unsplash.com/featured/900x700/?marrakech,morocco', summary: 'High-drama interiors, markets, and riad culture for travelers who want atmosphere.', activity: 'Spend a full day between the souks and a hammam reset.', place: 'Jardin Majorelle and Bahia Palace.', restaurant: 'Reserve one rooftop dinner and one traditional tagine spot.', stay: 'Stay inside a design-forward riad in the medina.' },
+    { name: 'Paris', region: 'Europe', style: 'Luxury', image: 'https://source.unsplash.com/featured/900x700/?paris,france', summary: 'Still one of the cleanest combinations of romance, museums, and hotel theater.', activity: 'Structure one slow neighborhood day instead of sprinting landmarks.', place: 'Le Marais, Saint-Germain, and the Seine at dusk.', restaurant: 'Split dining between one bistro and one special-occasion room.', stay: 'Choose Saint-Germain or the 1st for classic access.' },
+    { name: 'Rome', region: 'Europe', style: 'Culture', image: 'https://source.unsplash.com/featured/900x700/?rome,italy', summary: 'Ancient scale, street energy, and nonstop food reward for short or long stays.', activity: 'Do an early Colosseum or Vatican slot, then roam by foot.', place: 'Trastevere, the Pantheon area, and Testaccio.', restaurant: 'Target pasta classics and one old-school Roman trattoria.', stay: 'Centro Storico or Trastevere keeps everything close.' },
+    { name: 'Mexico City', region: 'Latin America', style: 'Food', image: 'https://source.unsplash.com/featured/900x700/?mexico%20city', summary: 'Arguably one of the best value food capitals on earth.', activity: 'Combine museums, coffee, and a serious taco crawl.', place: 'Roma Norte, Condesa, and Coyoacan.', restaurant: 'Book both street-food stops and one chef-led tasting table.', stay: 'Roma Norte is the easiest first base.' },
+    { name: 'Bangkok', region: 'Asia', style: 'Nightlife', image: 'https://source.unsplash.com/featured/900x700/?bangkok,thailand', summary: 'High energy, low cost, and huge sensory payoff.', activity: 'Use rooftop bars and late-night food markets as your rhythm.', place: 'Wat Arun, the river, and Chinatown.', restaurant: 'Balance one fine-dining meal with casual street-side favorites.', stay: 'Sukhumvit or the riverside depending on mood.' },
+    { name: 'Barcelona', region: 'Europe', style: 'Beach', image: 'https://source.unsplash.com/featured/900x700/?barcelona,spain', summary: 'Beach access plus design, dining, and walkable urban energy.', activity: 'Split the trip between architecture and long outdoor lunches.', place: 'Eixample, Gothic Quarter, and Barceloneta.', restaurant: 'Tapas hop with one bigger seafood reservation.', stay: 'Eixample delivers the cleanest home base.' },
+    { name: 'Istanbul', region: 'Middle East', style: 'Culture', image: 'https://source.unsplash.com/featured/900x700/?istanbul,turkey', summary: 'One of the world’s best value-for-history cities.', activity: 'Build your day around Bosphorus views and layered neighborhoods.', place: 'Hagia Sophia, Karakoy, and Balat.', restaurant: 'Go heavy on mezze, kebabs, and Turkish breakfast.', stay: 'Karakoy balances scenery and access.' },
+    { name: 'Cape Town', region: 'Africa', style: 'Nature', image: 'https://source.unsplash.com/featured/900x700/?cape%20town,south%20africa', summary: 'Epic natural setting with serious wine, food, and scenery upside.', activity: 'Do one mountain day and one peninsula coastal day.', place: 'Table Mountain, Camps Bay, and the Cape Winelands.', restaurant: 'Book ocean-view dining and a vineyard lunch.', stay: 'Sea Point or Camps Bay for the best visual payoff.' },
+    { name: 'Dubai', region: 'Middle East', style: 'Luxury', image: 'https://source.unsplash.com/featured/900x700/?dubai,uae', summary: 'Strong for polished hotels, dramatic interiors, and high-service travel.', activity: 'Use a short stay for spa, beach club, and skyline moments.', place: 'Downtown, Jumeirah, and the desert edge.', restaurant: 'Book one high-rise dinner and one modern Middle Eastern table.', stay: 'Downtown for spectacle, Jumeirah for resort feel.' },
+    { name: 'Singapore', region: 'Asia', style: 'Luxury', image: 'https://source.unsplash.com/featured/900x700/?singapore', summary: 'Hyper-efficient, beautiful, and ideal for a precise premium city break.', activity: 'Use hawker centers by day and design bars by night.', place: 'Marina Bay, Kampong Glam, and Gardens by the Bay.', restaurant: 'Mix hawker icons with one major tasting experience.', stay: 'Marina Bay if this is your first visit.' },
+    { name: 'Seoul', region: 'Asia', style: 'Nightlife', image: 'https://source.unsplash.com/featured/900x700/?seoul,south%20korea', summary: 'Design-heavy neighborhoods, nightlife, skincare, and food density.', activity: 'Build one day around shopping and one around late-night dining.', place: 'Bukchon Hanok Village, Hongdae, and Gangnam.', restaurant: 'Go for Korean barbecue and contemporary tasting menus.', stay: 'Myeongdong or Hongdae for convenience.' },
+    { name: 'Copenhagen', region: 'Europe', style: 'Luxury', image: 'https://source.unsplash.com/featured/900x700/?copenhagen,denmark', summary: 'Minimalist luxury, strong design culture, and one of the cleanest city experiences in Europe.', activity: 'Bike neighborhoods and anchor the trip with one marquee dinner.', place: 'Nyhavn, Nørrebro, and the harbor baths.', restaurant: 'Balance bakery culture with one destination-level restaurant.', stay: 'Indre By or Vesterbro.' },
+    { name: 'Buenos Aires', region: 'Latin America', style: 'Food', image: 'https://source.unsplash.com/featured/900x700/?buenos%20aires,argentina', summary: 'Great for steak, wine, architecture, and long graceful city days.', activity: 'Do cafe hopping by day and steakhouse reservations by night.', place: 'Palermo, Recoleta, and San Telmo.', restaurant: 'Reserve parrilla nights and one more polished tasting menu.', stay: 'Palermo is the easiest entry point.' },
+    { name: 'Bali', region: 'Asia', style: 'Nature', image: 'https://source.unsplash.com/featured/900x700/?bali,indonesia', summary: 'Best when the trip is about villas, wellness, and scenery.', activity: 'Pair Ubud calm with a few nights on the coast.', place: 'Ubud rice terraces and the southern beach clubs.', restaurant: 'Book sunset seafood and one wellness-forward brunch spot.', stay: 'Split between Ubud and Seminyak or Uluwatu.' },
+    { name: 'Sydney', region: 'Oceania', style: 'Beach', image: 'https://source.unsplash.com/featured/900x700/?sydney,australia', summary: 'A clean luxury-feeling city with beaches, harbor views, and strong dining.', activity: 'Do the Bondi to Coogee walk early and harbor dining later.', place: 'Sydney Opera House, Bondi, and Surry Hills.', restaurant: 'Mix seafood with neighborhood brunch culture.', stay: 'CBD, The Rocks, or Surry Hills.' },
+    { name: 'Vancouver', region: 'North America', style: 'Nature', image: 'https://source.unsplash.com/featured/900x700/?vancouver,canada', summary: 'Nature access and city polish without too much planning friction.', activity: 'Use it as a skyline-plus-mountains city break.', place: 'Stanley Park, Gastown, and Capilano or Grouse.', restaurant: 'Prioritize seafood and Asian dining depth.', stay: 'Coal Harbour or Yaletown.' },
+    { name: 'New Orleans', region: 'North America', style: 'Culture', image: 'https://source.unsplash.com/featured/900x700/?new%20orleans', summary: 'Music, food, and atmosphere with huge payoff even on a short stay.', activity: 'Build around live music and long meals, not over-scheduled landmarks.', place: 'French Quarter, Garden District, and Magazine Street.', restaurant: 'Go beyond Bourbon Street and reserve real Creole classics.', stay: 'Warehouse District or French Quarter edge.' }
+  ];
+
+  const renderDestinations = () => {
+    const regionFilter = destinationRegionSelect.value;
+    const styleFilter = destinationStyleSelect.value;
+
+    const filteredDestinations = destinationData.filter(destination => {
+      const matchesRegion = regionFilter === 'all' || destination.region === regionFilter;
+      const matchesStyle = styleFilter === 'all' || destination.style === styleFilter;
+      return matchesRegion && matchesStyle;
+    });
+
+    destinationCount.textContent = `${filteredDestinations.length} destination${filteredDestinations.length === 1 ? '' : 's'} shown`;
+
+    destinationGrid.innerHTML = filteredDestinations.map(destination => `
+      <article class="atlas-card reveal-on-scroll">
+        <img class="atlas-image" loading="lazy" src="${destination.image}" alt="${escapeHtml(destination.name)} travel photo" />
+        <div class="atlas-card-body">
+          <p class="card-label">${escapeHtml(destination.region)} · ${escapeHtml(destination.style)}</p>
+          <h3>${escapeHtml(destination.name)}</h3>
+          <p>${escapeHtml(destination.summary)}</p>
+          <details class="atlas-details">
+            <summary>Open insider guide</summary>
+            <ul>
+              <li><strong>Do:</strong> ${escapeHtml(destination.activity)}</li>
+              <li><strong>Visit:</strong> ${escapeHtml(destination.place)}</li>
+              <li><strong>Eat:</strong> ${escapeHtml(destination.restaurant)}</li>
+              <li><strong>Stay:</strong> ${escapeHtml(destination.stay)}</li>
+            </ul>
+          </details>
+        </div>
+      </article>
+    `).join('');
+  };
+
+  destinationRegionSelect.addEventListener('change', renderDestinations);
+  destinationStyleSelect.addEventListener('change', renderDestinations);
+
+  if (destinationResetButton) {
+    destinationResetButton.addEventListener('click', () => {
+      destinationRegionSelect.value = 'all';
+      destinationStyleSelect.value = 'all';
+      renderDestinations();
+    });
+  }
+
+  renderDestinations();
+}
+
+// Reveal animation for the current luxury homepage cards
+const luxuryRevealTargets = document.querySelectorAll('.reveal-on-scroll');
+if ('IntersectionObserver' in window && luxuryRevealTargets.length && !prefersReducedMotion) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -8% 0px'
+  });
+
+  luxuryRevealTargets.forEach(target => revealObserver.observe(target));
+}
