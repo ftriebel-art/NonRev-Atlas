@@ -3,138 +3,486 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NonRev Insider | Modern NonRev Home</title>
+  <title>Nonrev Atlas | Luxury Travel Intelligence for Everyday Passengers</title>
+  <meta
+    name="description"
+    content="Nonrev Atlas is a premium travel guide for everyday passengers who want insider-style flight deals, destination intelligence, luxury-looking trip planning, travel gear picks, and practical booking tools."
+  />
+  <meta
+    name="keywords"
+    content="travel deals, cheap flights, nonrev flights, insider travel tips, travel gear, destination guides, flight tools"
+  />
+  <meta name="theme-color" content="#07111f" />
+  <meta property="og:title" content="Nonrev Atlas | Luxury Travel Intelligence for Everyday Passengers" />
+  <meta
+    property="og:description"
+    content="Find premium-looking destination guides, live deal workflows, travel gear, booking tools, and insider tips without airline-industry jargon."
+  />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Nonrev Atlas",
+      "url": "https://example.com/",
+      "description": "Luxury-feeling travel intelligence for everyday passengers seeking cheaper flights, smarter destinations, gear picks, and insider planning."
+    }
+  </script>
 </head>
-<body class="nonrev-home-page">
-  <header class="nr-header">
-    <div class="nr-shell">
-      <a class="nr-logo" href="index.html">NonRev Insider</a>
-      <nav class="nr-nav" aria-label="Primary">
-        <a href="start-here.html">Start Here</a>
-        <a href="blog.html">Blog</a>
-        <a href="deals.html">Deals</a>
-        <a href="about.html">About</a>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <div class="site-shell header-row">
+      <a class="brand" href="index.html" aria-label="Nonrev Atlas home">
+        <span class="brand-mark">NA</span>
+        <span>
+          <strong>Nonrev Atlas</strong>
+          <small>Travel intelligence for everyday passengers</small>
+        </span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        data-menu-toggle
+      >
+        Menu
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="deals.html">Deals</a></li>
+          <li class="has-dropdown">
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+              Explore
+            </button>
+            <div class="nav-dropdown">
+              <a href="destinations.html">20 Destinations</a>
+              <a href="guides.html">Travel Guides</a>
+              <a href="tools.html">Flight Tools</a>
+              <a href="credit-cards.html">Credit Cards</a>
+            </div>
+          </li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode">
+            <span aria-hidden="true">◐</span>
+          </button>
+          <a class="button button-primary button-small" href="#newsletter">Join Free</a>
+        </div>
       </nav>
     </div>
   </header>
 
-  <main class="nr-main">
-    <section class="nr-hero">
-      <div class="nr-shell nr-center">
-        <p class="nr-kicker">Built for standby and employee-travel pros</p>
-        <h1>NonRev Insider</h1>
-        <p class="nr-lead">Professional route strategy, agreement clarity, and quick planning tools for better non-rev decisions.</p>
-        <a class="nr-cta" href="#flight-finder">Try Flight Finder</a>
-      </div>
-    </section>
-
-    <section class="nr-section" id="best-routes">
-      <div class="nr-shell">
-        <h2>Best NonRev Routes</h2>
-        <div class="nr-grid-3">
-          <article class="nr-card">
-            <h3>ATL to MCO</h3>
-            <p>High frequency and multiple daily options make this a strong same-day backup route.</p>
-          </article>
-          <article class="nr-card">
-            <h3>LAX to LAS</h3>
-            <p>Short-haul with dense schedule depth. Ideal for flexible departures and quick pivots.</p>
-          </article>
-          <article class="nr-card">
-            <h3>JFK to BOS</h3>
-            <p>Reliable corridor for positioning flights with manageable block times and alternatives.</p>
-          </article>
+  <main id="main-content">
+    <section class="hero hero-home">
+      <div class="site-shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Luxury-level trip planning. Zero travel-industry gatekeeping.</p>
+          <h1>Turn “where should we go?” into a premium, bookable plan in one sitting.</h1>
+          <p class="hero-lead">
+            Nonrev Atlas blends deal-hunting discipline, travel-editor taste, and insider-style planning
+            into one sleek platform for everyday passengers. Find cheaper flights, smarter destinations,
+            better gear, and practical guides without bouncing across ten generic websites.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="deals.html">See Best Deals Today</a>
+            <a class="button button-secondary" href="destinations.html">Browse 20 Destinations</a>
+          </div>
+          <div class="hero-metrics" role="list" aria-label="Platform highlights">
+            <article class="metric-card" role="listitem">
+              <strong>20</strong>
+              <span>editorial destination blueprints</span>
+            </article>
+            <article class="metric-card" role="listitem">
+              <strong>7</strong>
+              <span>core site sections built to scale</span>
+            </article>
+            <article class="metric-card" role="listitem">
+              <strong>1</strong>
+              <span>luxury UI system across the platform</span>
+            </article>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <section class="nr-section" id="agreements">
-      <div class="nr-shell">
-        <h2>Airline Agreements</h2>
-        <div class="nr-card nr-agreements">
-          <p>Interline and ZED agreements can unlock major flexibility, but priority and fees vary by carrier.</p>
-          <ul>
-            <li>Check your airline portal for active partner list and eligibility tier.</li>
-            <li>Confirm dress code and check-in windows before airport arrival.</li>
-            <li>Always prepare one backup route and one backup destination.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="nr-section" id="flight-finder">
-      <div class="nr-shell">
-        <h2>Flight Finder</h2>
-        <div class="nr-card">
-          <form class="nr-finder" id="flightFinderForm">
-            <label for="fromInput">From</label>
-            <input id="fromInput" name="from" type="text" placeholder="e.g. ATL" required />
-
-            <label for="toInput">To</label>
-            <input id="toInput" name="to" type="text" placeholder="e.g. MCO" required />
-
-            <button type="submit">Find Advice</button>
+        <aside class="hero-panel glass-card">
+          <div class="panel-topline">
+            <span class="status-dot"></span>
+            <span>Live planning workflow</span>
+          </div>
+          <h2>Quick trip brief</h2>
+          <form class="trip-brief" data-trip-brief>
+            <label>
+              Leaving from
+              <select name="origin">
+                <option>New York</option>
+                <option>Los Angeles</option>
+                <option>Chicago</option>
+                <option>Miami</option>
+                <option>Seattle</option>
+              </select>
+            </label>
+            <label>
+              Travel mood
+              <select name="tripType">
+                <option>Beach escape</option>
+                <option>Food city</option>
+                <option>Luxury weekend</option>
+                <option>Culture-heavy trip</option>
+                <option>Nature reset</option>
+              </select>
+            </label>
+            <label>
+              Budget lane
+              <select name="budget">
+                <option>Under $700</option>
+                <option>$700 to $1,500</option>
+                <option>$1,500 to $3,000</option>
+                <option>Flexible</option>
+              </select>
+            </label>
+            <button class="button button-primary button-block" type="submit">Build My Insider Shortlist</button>
           </form>
-          <div id="flightFinderResult" class="nr-result" aria-live="polite">
-            Enter a route and click Find Advice to see non-rev guidance.
+          <div class="trip-brief-result" data-trip-brief-result aria-live="polite">
+            Start with a luxury weekend in Lisbon, Mexico City, or San Juan for the best mix of value,
+            food, and easy logistics.
           </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="signal-bar">
+      <div class="site-shell signal-bar-inner">
+        <p>
+          Strategy inspired by how power travelers use
+          <a href="https://www.google.com/travel/flights?hl=en-US" target="_blank" rel="noopener noreferrer">Google Flights</a>,
+          <a href="https://www.going.com/on-the-fly" target="_blank" rel="noopener noreferrer">Going</a>,
+          <a href="https://www.skyscanner.net/" target="_blank" rel="noopener noreferrer">Skyscanner</a>,
+          <a href="https://www.tripadvisor.com/" target="_blank" rel="noopener noreferrer">Tripadvisor</a>,
+          and
+          <a href="https://www.getyourguide.com/" target="_blank" rel="noopener noreferrer">GetYourGuide</a>.
+        </p>
+        <a class="text-link" href="tools.html">See our full tool stack</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="site-shell">
+        <div class="section-heading">
+          <p class="eyebrow">Why This Feels Different</p>
+          <h2>Built between glossy travel magazines and raw deal aggregators.</h2>
+          <p>
+            Most travel sites do one thing well. Nonrev Atlas is designed to combine destination taste,
+            booking discipline, and practical insider context in one easy flow.
+          </p>
+        </div>
+        <div class="comparison-grid">
+          <article class="feature-card reveal-on-scroll">
+            <span class="card-label">Discovery</span>
+            <h3>Luxury-first visual planning</h3>
+            <p>Clear editorial curation, stronger imagery, and less clutter than mass-market deal pages.</p>
+          </article>
+          <article class="feature-card reveal-on-scroll">
+            <span class="card-label">Insider angle</span>
+            <h3>Everyday passenger advantage</h3>
+            <p>We explain how savvy travelers think, then translate that into usable actions for normal trips.</p>
+          </article>
+          <article class="feature-card reveal-on-scroll">
+            <span class="card-label">Revenue-ready</span>
+            <h3>Monetization without spam vibes</h3>
+            <p>Affiliate tools, cards, gear, and tours are integrated as premium recommendations, not banner noise.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="nr-section" id="nonrev-checker">
-      <div class="nr-shell">
-        <h2>NonRev Strategy Advisor</h2>
-        <div class="nr-card">
-          <form class="nr-finder nr-checker-form" id="nonRevCheckerForm">
-            <label for="checkerFromInput">From</label>
-            <input id="checkerFromInput" name="checkerFrom" type="text" placeholder="e.g. JFK" required />
+    <section class="section section-emphasis">
+      <div class="site-shell">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Best Deals Today</p>
+            <h2>Urgent, clickable, and ready for affiliate monetization.</h2>
+          </div>
+          <a class="button button-secondary" href="deals.html">Open Full Deals Hub</a>
+        </div>
 
-            <label for="checkerToInput">To</label>
-            <input id="checkerToInput" name="checkerTo" type="text" placeholder="e.g. LAX" required />
+        <div class="chip-row" data-filter-group="home-deals">
+          <button class="chip is-active" type="button" data-filter="all">All</button>
+          <button class="chip" type="button" data-filter="beach">Beach</button>
+          <button class="chip" type="button" data-filter="city">City</button>
+          <button class="chip" type="button" data-filter="longhaul">Long-haul</button>
+        </div>
 
-            <label for="checkerDayInput">Day of Week</label>
-            <select id="checkerDayInput" name="checkerDay" required>
-              <option value="">Select day</option>
-              <option value="Mon">Monday</option>
-              <option value="Tue">Tuesday</option>
-              <option value="Wed">Wednesday</option>
-              <option value="Thu">Thursday</option>
-              <option value="Fri">Friday</option>
-              <option value="Sat">Saturday</option>
-              <option value="Sun">Sunday</option>
-            </select>
+        <div class="card-grid deals-grid">
+          <article class="deal-card reveal-on-scroll" data-category="beach">
+            <p class="deal-kicker">Miami to San Juan</p>
+            <h3>$189 roundtrip</h3>
+            <p>Passport-free Caribbean energy, strong hotel value, and easy long-weekend timing.</p>
+            <div class="deal-meta">
+              <span>Best for sun</span>
+              <span>Ending soon</span>
+            </div>
+            <a class="button button-primary button-small" href="https://www.google.com/travel/flights?hl=en-US" target="_blank" rel="noopener noreferrer">Track Flight</a>
+          </article>
+          <article class="deal-card reveal-on-scroll featured-deal" data-category="city">
+            <p class="deal-kicker">New York to Lisbon</p>
+            <h3>$429 roundtrip</h3>
+            <p>Luxury-feeling Europe on a smart budget, with food, design hotels, and walkable neighborhoods.</p>
+            <div class="deal-meta">
+              <span>Best value</span>
+              <span>Flexible dates win</span>
+            </div>
+            <a class="button button-primary button-small" href="https://www.going.com/" target="_blank" rel="noopener noreferrer">Watch Similar Deals</a>
+          </article>
+          <article class="deal-card reveal-on-scroll" data-category="longhaul">
+            <p class="deal-kicker">Los Angeles to Tokyo</p>
+            <h3>$621 roundtrip</h3>
+            <p>Big cultural payoff, strong food density, and premium experience per dollar if timed right.</p>
+            <div class="deal-meta">
+              <span>Food city</span>
+              <span>Shoulder season</span>
+            </div>
+            <a class="button button-primary button-small" href="https://www.skyscanner.net/" target="_blank" rel="noopener noreferrer">Compare Fares</a>
+          </article>
+        </div>
+      </div>
+    </section>
 
-            <label for="checkerLoadInput">Estimated Load % (Optional)</label>
-            <input id="checkerLoadInput" name="checkerLoad" type="number" min="0" max="100" step="1" placeholder="e.g. 72" />
+    <section class="section">
+      <div class="site-shell">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Live Flight Tools</p>
+            <h2>Everything a traveler needs before the booking tab frenzy begins.</h2>
+          </div>
+          <a class="button button-secondary" href="tools.html">Browse Tools</a>
+        </div>
 
-            <button type="submit">Get Strategy Advice</button>
+        <div class="tool-layout">
+          <article class="tool-card reveal-on-scroll">
+            <span class="card-label">Flight tracking</span>
+            <h3>Fare map and flexible date stack</h3>
+            <p>Use Google Flights Explore, Skyscanner Everywhere, and price alerts to get out of destination tunnel vision.</p>
+            <a class="text-link" href="https://www.google.com/travel/flights?hl=en-US" target="_blank" rel="noopener noreferrer">Open Google Flights</a>
+          </article>
+          <article class="tool-card reveal-on-scroll">
+            <span class="card-label">Deals newsletters</span>
+            <h3>Flash-fare discovery engine</h3>
+            <p>Going and Secret Flying are strongest when you need the trip idea before you need the exact itinerary.</p>
+            <a class="text-link" href="https://www.secretflying.com/" target="_blank" rel="noopener noreferrer">Open Deal Sources</a>
+          </article>
+          <article class="tool-card reveal-on-scroll">
+            <span class="card-label">Activities</span>
+            <h3>Experience booking layer</h3>
+            <p>When a trip gets chosen, move directly into tours, skip-the-line tickets, and local experiences.</p>
+            <a class="text-link" href="https://www.viator.com/" target="_blank" rel="noopener noreferrer">Book Activities</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="site-shell">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Destination Intelligence</p>
+            <h2>Twenty places people actually want to go, framed like a premium travel desk.</h2>
+          </div>
+          <a class="button button-secondary" href="destinations.html">See All 20</a>
+        </div>
+
+        <div class="destination-preview-grid">
+          <article class="destination-preview reveal-on-scroll">
+            <img loading="lazy" src="https://source.unsplash.com/featured/900x700/?lisbon" alt="Lisbon streets and rooftops" />
+            <div>
+              <p class="card-label">Europe</p>
+              <h3>Lisbon</h3>
+              <p>Go for hillside views, seafood, and boutique-hotel energy without Paris-level pricing.</p>
+            </div>
+          </article>
+          <article class="destination-preview reveal-on-scroll">
+            <img loading="lazy" src="https://source.unsplash.com/featured/900x700/?tokyo" alt="Tokyo skyline at night" />
+            <div>
+              <p class="card-label">Asia</p>
+              <h3>Tokyo</h3>
+              <p>Massive food upside, beautiful retail neighborhoods, and world-class service almost everywhere.</p>
+            </div>
+          </article>
+          <article class="destination-preview reveal-on-scroll">
+            <img loading="lazy" src="https://source.unsplash.com/featured/900x700/?san%20juan%20puerto%20rico" alt="Colorful buildings in San Juan" />
+            <div>
+              <p class="card-label">Caribbean</p>
+              <h3>San Juan</h3>
+              <p>One of the easiest high-reward getaways for U.S. travelers who want beach plus city culture.</p>
+            </div>
+          </article>
+          <article class="destination-preview reveal-on-scroll">
+            <img loading="lazy" src="https://source.unsplash.com/featured/900x700/?marrakech" alt="Marrakech architecture and market colors" />
+            <div>
+              <p class="card-label">Africa</p>
+              <h3>Marrakech</h3>
+              <p>Design-heavy riads, sensory overload, and rich shopping for travelers who want drama and detail.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="site-shell">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Read Next</p>
+            <h2>Keep the blog library and turn it into an actual editorial engine.</h2>
+          </div>
+          <a class="button button-secondary" href="blog.html">Open Blog</a>
+        </div>
+        <div class="article-grid">
+          <article class="article-card reveal-on-scroll">
+            <span class="card-label">Cheap Flights</span>
+            <h3><a href="how-to-fly-cheap-2026-guide.html">How to Fly Cheap in 2026</a></h3>
+            <p>A practical framework for flexible dates, fare triggers, and booking timing.</p>
+          </article>
+          <article class="article-card reveal-on-scroll">
+            <span class="card-label">Standby</span>
+            <h3><a href="what-is-nonrev-travel.html">What Is Nonrev Travel?</a></h3>
+            <p>Translate insider travel logic into plain English for everyday passengers.</p>
+          </article>
+          <article class="article-card reveal-on-scroll">
+            <span class="card-label">Packing</span>
+            <h3><a href="flight-attendant-packing-tips.html">Flight Attendant Packing Tips</a></h3>
+            <p>Build a faster, lighter carry-on system with fewer airport regrets.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-emphasis">
+      <div class="site-shell">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Travel Gear</p>
+            <h2>Premium gear picks that help travelers move like pros.</h2>
+          </div>
+          <a class="button button-secondary" href="tools.html#gear">See More Gear</a>
+        </div>
+        <div class="gear-grid">
+          <article class="gear-card reveal-on-scroll">
+            <h3>Compression Packing Cubes</h3>
+            <p>Cleaner suitcase organization, better carry-on discipline, and less hotel-room chaos.</p>
+            <a class="text-link" href="https://www.eaglecreek.com/" target="_blank" rel="noopener noreferrer">Shop Packing Gear</a>
+          </article>
+          <article class="gear-card reveal-on-scroll">
+            <h3>Carry-on Travel Backpack</h3>
+            <p>The fastest path to low-friction city breaks and tighter connections.</p>
+            <a class="text-link" href="https://www.cotopaxi.com/" target="_blank" rel="noopener noreferrer">See Travel Backpacks</a>
+          </article>
+          <article class="gear-card reveal-on-scroll">
+            <h3>Universal Power and Tech Kit</h3>
+            <p>One pouch for adapters, battery packs, and cables so transit days stay calm.</p>
+            <a class="text-link" href="https://www.anker.com/" target="_blank" rel="noopener noreferrer">Build a Tech Kit</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="site-shell testimonial-shell">
+        <div class="section-heading">
+          <p class="eyebrow">Trust Layer</p>
+          <h2>Looks premium because the system underneath it is organized.</h2>
+        </div>
+        <div class="testimonial-grid">
+          <blockquote class="quote-card reveal-on-scroll">
+            “This feels like the version of travel planning you get after opening fifteen tabs, except it’s all already sorted.”
+            <cite>Alex, frequent weekend traveler</cite>
+          </blockquote>
+          <blockquote class="quote-card reveal-on-scroll">
+            “The site feels expensive, but the advice is practical enough that normal travelers can actually use it.”
+            <cite>Maya, budget-luxury flyer</cite>
+          </blockquote>
+          <blockquote class="quote-card reveal-on-scroll">
+            “The mix of deals, gear, and destination picks is exactly what most travel blogs never connect well.”
+            <cite>Jordan, points-and-miles beginner</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="site-shell">
+        <div class="newsletter-card" id="newsletter">
+          <div>
+            <p class="eyebrow">Free Newsletter</p>
+            <h2>Get weekly travel deals, destination drops, and smarter booking cues.</h2>
+            <p>One clean email with flight ideas, hotel angles, gear picks, and guides worth opening.</p>
+          </div>
+          <form class="newsletter-form" data-newsletter-form>
+            <label class="sr-only" for="home-newsletter-email">Email address</label>
+            <input id="home-newsletter-email" type="email" placeholder="Enter your best email" required />
+            <button class="button button-primary" type="submit">Join Free</button>
           </form>
-          <div id="nonRevCheckerResult" class="nr-result" aria-live="polite">
-            Enter route details to get insider non-rev strategy guidance.
-          </div>
-          <div id="nonRevCheckerTip" class="nr-tip" aria-live="polite">
-            Pro Tip: add a load estimate for more precise advice.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="nr-section" id="monetization">
-      <div class="nr-shell">
-        <h2>Recommended Tool</h2>
-        <div class="nr-card">
-          <p>Compare fares and standby-friendly alternatives using our partner link.</p>
-          <a class="nr-affiliate" href="https://example.com/affiliate-link" target="_blank" rel="noopener noreferrer">Open Partner Flight Tool (Affiliate Placeholder)</a>
+          <p class="form-note" data-form-message>No spam. Just better travel ideas and practical links.</p>
         </div>
       </div>
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <footer class="site-footer">
+    <div class="site-shell footer-grid">
+      <div>
+        <a class="brand footer-brand" href="index.html">
+          <span class="brand-mark">NA</span>
+          <span>
+            <strong>Nonrev Atlas</strong>
+            <small>Luxury-feeling travel strategy for everyday passengers.</small>
+          </span>
+        </a>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="deals.html">Deals</a></li>
+          <li><a href="tools.html">Tools</a></li>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Monetization</h3>
+        <ul>
+          <li><a href="credit-cards.html">Credit Cards</a></li>
+          <li><a href="tools.html#gear">Travel Gear</a></li>
+          <li><a href="deals.html">Flight Deals</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Company</h3>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <a class="sticky-mobile-cta" href="deals.html">Unlock Deals</a>
+
+  <script src="script.js" defer></script>
 </body>
 </html>

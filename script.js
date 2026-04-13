@@ -187,6 +187,13 @@ const checkerLoadInput = document.getElementById('checkerLoadInput');
 const nonRevCheckerResult = document.getElementById('nonRevCheckerResult');
 const nonRevCheckerTip = document.getElementById('nonRevCheckerTip');
 
+const escapeHtml = value => value
+  .replaceAll('&', '&amp;')
+  .replaceAll('<', '&lt;')
+  .replaceAll('>', '&gt;')
+  .replaceAll('"', '&quot;')
+  .replaceAll("'", '&#39;');
+
 if (
   nonRevCheckerForm &&
   checkerFromInput &&
@@ -231,47 +238,102 @@ if (
 
     nonRevCheckerResult.classList.remove('nr-high', 'nr-medium', 'nr-low', 'is-visible');
     nonRevCheckerResult.classList.add('nr-loading');
-    nonRevCheckerResult.textContent = `Building strategy for ${from} to ${to} on ${day}${parsedLoad !== null ? ` with ${parsedLoad}% estimated load` : ''}...`;
+    nonRevCheckerResult.innerHTML = `
+      <div class="advisor-loading">\n        <span class="advisor-loading-icon">\u23F3</span>\n        Building strategy for ${escapeHtml(from)} to ${escapeHtml(to)} on ${escapeHtml(day)}${parsedLoad !== null ? ` with ${parsedLoad}% estimated load` : ''}...\n      </div>
+    `;
 
     nonRevCheckerTip.classList.remove('is-visible');
     nonRevCheckerTip.textContent = 'Pro Tip: prioritizing load risk, day pattern, and backup options.';
 
     let strategyText = '';
     let chanceClass = '';
+    let riskLevel = '';
+    let riskClass = '';
+    let riskIcon = '';
+    let backupPlan = '';
     let proTipText = '';
 
     if (parsedLoad !== null) {
       if (parsedLoad > 85) {
         strategyText = 'High risk. Consider earlier flights or alternate routes.';
         chanceClass = 'nr-low';
+        riskLevel = 'High';
+        riskClass = 'risk-high';
+        riskIcon = '🔴';
+        backupPlan = 'Prioritize first-bank departures and list at least two fallback flights plus one alternate airport.';
         proTipText = 'Protect your trip with at least two backup flights and one alternate city option';
       } else if (parsedLoad >= 60) {
         strategyText = 'Moderate chance. List backup flights and monitor closely.';
         chanceClass = 'nr-medium';
+        riskLevel = 'Medium';
+        riskClass = 'risk-medium';
+        riskIcon = '🟡';
+        backupPlan = 'Hold one nonstop and one connection backup, then re-check loads at 24h and 3h before departure.';
         proTipText = 'Set load checks at 24h, 12h, and 3h before departure for better decision timing';
       } else {
         strategyText = 'Good chance. Still list multiple flights as backup.';
         chanceClass = 'nr-high';
+        riskLevel = 'Low';
+        riskClass = 'risk-low';
+        riskIcon = '🟢';
+        backupPlan = 'Keep at least one later departure noted so you can pivot quickly if loads shift at the gate.';
         proTipText = 'Target the first departure bank to maximize same-day recovery options';
       }
     } else if (day === 'Tue' || day === 'Wed') {
       strategyText = 'Good chance. Midweek generally improves standby outcomes.';
       chanceClass = 'nr-high';
+      riskLevel = 'Low';
+      riskClass = 'risk-low';
+      riskIcon = '🟢';
+      backupPlan = 'Set one additional departure as a fallback and keep airport standby times flexible.';
       proTipText = 'Even on strong days, keep one later departure bookmarked in case the first wave closes out';
     } else if (day === 'Mon' || day === 'Thu') {
       strategyText = 'Moderate chance. Traffic swings can change quickly, so monitor closely.';
       chanceClass = 'nr-medium';
+      riskLevel = 'Medium';
+      riskClass = 'risk-medium';
+      riskIcon = '🟡';
+      backupPlan = 'Track both direct and one-stop flights so you can swap quickly when standby rank moves.';
       proTipText = 'Watch both direct and one-stop options to widen your recovery path';
     } else {
       strategyText = 'Higher risk window. Weekend pressure can reduce standby success.';
       chanceClass = 'nr-low';
+      riskLevel = 'High';
+      riskClass = 'risk-high';
+      riskIcon = '🔴';
+      backupPlan = 'Plan an alternate airport or travel window, and avoid last-bank flights where possible.';
       proTipText = 'Shift to very early departures or nearby alternate airports when possible';
     }
 
     setTimeout(() => {
       nonRevCheckerResult.classList.remove('nr-loading', 'nr-high', 'nr-medium', 'nr-low', 'is-visible');
       nonRevCheckerResult.classList.add(chanceClass);
-      nonRevCheckerResult.textContent = `Route: ${from} to ${to} on ${day}${parsedLoad !== null ? ` (${parsedLoad}% load)` : ''}. ${strategyText}`;
+      nonRevCheckerResult.innerHTML = `
+        <article class="advisor-card ${riskClass}">
+          <header class="advisor-header">
+            <h3>✈️ NonRev Strategy Brief</h3>
+            <p class="advisor-route">${escapeHtml(from)} to ${escapeHtml(to)} • ${escapeHtml(day)}${parsedLoad !== null ? ` • ${parsedLoad}% load` : ''}</p>
+          </header>
+          <div class="advisor-grid">
+            <section class="advisor-item">
+              <p class="advisor-label">${riskIcon} Risk Level</p>
+              <p class="advisor-value ${riskClass}">${escapeHtml(riskLevel)}</p>
+            </section>
+            <section class="advisor-item">
+              <p class="advisor-label">🧭 Strategy Recommendation</p>
+              <p class="advisor-copy">${escapeHtml(strategyText)}</p>
+            </section>
+            <section class="advisor-item">
+              <p class="advisor-label">🛫 Backup Plan</p>
+              <p class="advisor-copy">${escapeHtml(backupPlan)}</p>
+            </section>
+            <section class="advisor-item">
+              <p class="advisor-label">💡 Pro Tip</p>
+              <p class="advisor-copy">${escapeHtml(proTipText)}.</p>
+            </section>
+          </div>
+        </article>
+      `;
 
       // Restart fade animation each check
       void nonRevCheckerResult.offsetWidth;
@@ -287,4 +349,79 @@ if (
       }
     }, 700);
   });
+}
+
+// Premium homepage billing toggle for pricing cards
+const billingToggleButtons = document.querySelectorAll('.np-toggle');
+const planPrices = document.querySelectorAll('.np-price[data-monthly][data-annual]');
+const planPriceNotes = document.querySelectorAll('.np-price-note');
+
+if (billingToggleButtons.length && planPrices.length) {
+  billingToggleButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const billing = button.getAttribute('data-billing');
+      if (!billing) {
+        return;
+      }
+
+      billingToggleButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      planPrices.forEach(priceEl => {
+        const value = billing === 'annual'
+          ? priceEl.getAttribute('data-annual')
+          : priceEl.getAttribute('data-monthly');
+
+        if (value) {
+          priceEl.textContent = value;
+        }
+      });
+
+      planPriceNotes.forEach(noteEl => {
+        noteEl.textContent = billing === 'annual' ? 'per month billed annually' : 'per month';
+      });
+    });
+  });
+}
+
+// Single-open FAQ behavior for cleaner scanning
+const premiumFaqItems = document.querySelectorAll('.np-faq-list details');
+if (premiumFaqItems.length) {
+  premiumFaqItems.forEach(item => {
+    item.addEventListener('toggle', () => {
+      if (item.open) {
+        premiumFaqItems.forEach(other => {
+          if (other !== item) {
+            other.open = false;
+          }
+        });
+      }
+    });
+  });
+}
+
+// Premium page reveal animation to improve visual hierarchy
+const premiumRevealTargets = document.querySelectorAll(
+  '.nonrev-premium .np-proof-row, .nonrev-premium .np-headline, .nonrev-premium .np-grid-3 > .np-card, .nonrev-premium .np-faq-list details, .nonrev-premium .np-waitlist'
+);
+
+if ('IntersectionObserver' in window && premiumRevealTargets.length && !prefersReducedMotion) {
+  premiumRevealTargets.forEach((target, index) => {
+    target.classList.add('np-reveal');
+    target.style.transitionDelay = `${Math.min(index * 35, 210)}ms`;
+  });
+
+  const premiumRevealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('np-inview');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.18,
+    rootMargin: '0px 0px -11% 0px'
+  });
+
+  premiumRevealTargets.forEach(target => premiumRevealObserver.observe(target));
 }
