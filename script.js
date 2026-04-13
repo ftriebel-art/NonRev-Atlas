@@ -146,3 +146,34 @@ if ('IntersectionObserver' in window && !prefersReducedMotion) {
 }
 
 console.log('✈️ Nonrev Insider Loaded');
+
+// Homepage Flight Finder advice output
+const flightFinderForm = document.getElementById('flightFinderForm');
+const fromInput = document.getElementById('fromInput');
+const toInput = document.getElementById('toInput');
+const flightFinderResult = document.getElementById('flightFinderResult');
+
+if (flightFinderForm && fromInput && toInput && flightFinderResult) {
+  const routeAdvice = {
+    'ATL-MCO': 'Great starter non-rev route. Check first and last departures for better seat odds.',
+    'LAX-LAS': 'Strong short-haul choice. Keep a same-day backup departure in your pocket.',
+    'JFK-BOS': 'Useful positioning route. Confirm weather and crew movement before committing.'
+  };
+
+  flightFinderForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const from = fromInput.value.trim().toUpperCase();
+    const to = toInput.value.trim().toUpperCase();
+
+    if (!from || !to) {
+      flightFinderResult.textContent = 'Please enter both airports to get non-rev advice.';
+      return;
+    }
+
+    const routeKey = `${from}-${to}`;
+    const advice = routeAdvice[routeKey] || 'Load-check this route at 24 hours and again 3 hours before departure. Keep one backup city ready.';
+
+    flightFinderResult.textContent = `Route: ${from} to ${to}. Advice: ${advice}`;
+  });
+}
