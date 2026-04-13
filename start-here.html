@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How Flight Attendants Travel for Less - Nonrev Insider Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* Guide-specific styles */
+    .guide-hero {
+      background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-blue) 50%, var(--accent-blue) 100%);
+      color: var(--white);
+      padding: 6rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .guide-hero::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+      top: -100px;
+      right: -100px;
+    }
+
+    .guide-hero::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 50%;
+      bottom: -50px;
+      left: -50px;
+    }
+
+    .guide-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .guide-title {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+
+    .guide-intro {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .guide-meta {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.95rem;
+    }
+
+    .guide-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 7rem 0;
+    }
+
+    .guide-section {
+      margin-bottom: 6rem;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .guide-section:nth-child(n) {
+      opacity: 0;
+      animation-fill-mode: forwards;
+    }
+
+    .guide-section:nth-child(1) { animation-delay: 0s; }
+    .guide-section:nth-child(2) { animation-delay: 0.1s; }
+    .guide-section:nth-child(3) { animation-delay: 0.2s; }
+    .guide-section:nth-child(4) { animation-delay: 0.3s; }
+    .guide-section:nth-child(5) { animation-delay: 0.4s; }
+    .guide-section:nth-child(6) { animation-delay: 0.5s; }
+    .guide-section:nth-child(7) { animation-delay: 0.6s; }
+    .guide-section:nth-child(8) { animation-delay: 0.7s; }
+
+    .guide-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-navy);
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    .guide-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-blue), var(--primary-blue));
+      border-radius: 2px;
+    }
+
+    .guide-section h3 {
+      font-size: 1.35rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-dark);
+    }
+
+    .guide-section p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    .guide-list {
+      list-style: none;
+      margin: 1.5rem 0 2rem 0;
+    }
+
+    .guide-list li {
+      padding: 0.75rem 0 0.75rem 2.5rem;
+      position: relative;
+      color: var(--text-light);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .guide-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent-blue);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .guide-highlight {
+      background: linear-gradient(135deg, var(--light-blue) 0%, rgba(230, 242, 255, 0.5) 100%);
+      border-left: 4px solid var(--accent-blue);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+
+    .guide-highlight p {
+      margin: 0;
+      color: var(--primary-blue);
+      font-weight: 600;
+    }
+
+    .guide-cta-section {
+      background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-blue) 100%);
+      color: var(--white);
+      padding: 3rem;
+      border-radius: 16px;
+      text-align: center;
+      margin: 4rem 0;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .guide-cta-section h3 {
+      color: var(--white);
+      margin-bottom: 0.75rem;
+      font-size: 1.5rem;
+    }
+
+    .guide-cta-section p {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 1.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .guide-cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .guide-cta-buttons .btn {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .guide-related {
+      background: var(--light-gray);
+      padding: 3rem;
+      border-radius: 16px;
+      margin-top: 4rem;
+    }
+
+    .guide-related h3 {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      color: var(--primary-navy);
+    }
+
+    .guide-related-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .guide-related-item {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .guide-related-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent-blue);
+    }
+
+    .guide-related-item h4 {
+      color: var(--primary-blue);
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .guide-related-item p {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .guide-related-link {
+      color: var(--accent-blue);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition);
+    }
+
+    .guide-related-link:hover {
+      transform: translateX(4px);
+    }
+
+    .breadcrumb {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+    }
+
+    .breadcrumb a {
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .guide-title {
+        font-size: 2rem;
+      }
+
+      .guide-intro {
+        font-size: 1rem;
+      }
+
+      .guide-section {
+        margin-bottom: 4rem;
+      }
+
+      .guide-section h2 {
+        font-size: 1.6rem;
+      }
+
+      .guide-hero {
+        padding: 4rem 0;
+      }
+
+      .guide-cta-buttons {
+        flex-direction: column;
+      }
+
+      .guide-cta-buttons .btn {
+        min-width: auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .guide-title {
+        font-size: 1.5rem;
+      }
+
+      .guide-section h2 {
+        font-size: 1.3rem;
+      }
+
+      .guide-section h3 {
+        font-size: 1.1rem;
+      }
+
+      .guide-meta {
+        gap: 1rem;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<header class="navbar">
+  <div class="container nav-container">
+    <div class="logo">
+      <span class="plane-icon">✈️</span>
+      <span class="brand-text">Nonrev Insider</span>
+    </div>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    <nav class="nav-menu" id="navMenu">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="start-here.html" class="nav-link active-nav">Start Here</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="deals.html" class="nav-link">Deals</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="#newsletter" class="nav-link">Get Deals</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Guide Hero Section -->
+<section class="guide-hero">
+  <div class="container guide-hero-content">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> / How Flight Attendants Travel for Less
+    </div>
+    <h1 class="guide-title">How Flight Attendants Travel the World for Less</h1>
+    <p class="guide-intro">Discover the insider methods, practical systems, and tested tools flight crews use to travel globally while keeping costs down. This guide is written from a flight attendant perspective and optimized for real-world use in 2026. I use these exact steps myself whenever I plan a personal trip.</p>
+    <div class="guide-meta">
+      <span>Updated April 2026</span>
+      <span>📖 30-minute read</span>
+      <span>✓ Complete guide</span>
+      <span>Flight attendant perspective</span>
+      <span>💾 Save & reference anytime</span>
+    </div>
+  </div>
+</section>
+
+<!-- Lead Magnet Section -->
+<section class="lead-magnet-section" id="free-guide">
+  <div class="container">
+    <div class="lead-magnet-card">
+      <h2 class="lead-magnet-title">Free Flight Attendant Travel Guide</h2>
+      <h3 class="lead-magnet-headline">Learn How Flight Attendants Travel for Less</h3>
+      <p class="lead-magnet-description">Get our free step-by-step guide with practical airfare-saving tactics, smarter booking timing, and easy actions to help you save on your next trip.</p>
+      <form class="lead-magnet-form" id="leadMagnetFormStartHere">
+        <input type="email" placeholder="Enter your best email" required>
+        <button type="submit" class="btn btn-primary">Get Free Guide</button>
+      </form>
+      <p class="lead-magnet-thankyou" aria-live="polite">Thanks. Your free guide is on the way (placeholder).</p>
+    </div>
+  </div>
+</section>
+
+<!-- Guide Content -->
+<div class="container guide-content">
+
+  <!-- Section 1: Introduction -->
+  <section class="guide-section">
+    <h2>Why This Matters</h2>
+    <p>Travel is one of life's greatest joys, but it's often one of the most expensive. The average American household spends $4,000-$6,000 annually on vacation travel. Flight attendants, meanwhile, find ways to travel internationally multiple times per year, often spending less than $500 per trip. In my own experience, the biggest difference is not luck, it is having a repeatable system.</p>
+    <p>This isn't luck or privilege. It's knowledge. It's strategy. And you can learn it too.</p>
+    <p>In this guide, you'll discover the exact methods that aviation professionals use to cut travel costs by 60-80%, access exclusive airline perks, and maximize every dollar spent on flights, hotels, and experiences.</p>
+  </section>
+
+  <!-- Section 2: What is Nonrev Travel -->
+  <section class="guide-section">
+    <h2>What is Nonrev Travel?</h2>
+    <p><strong>Nonrev (non-revenue) travel</strong> is when employees of airlines fly using standby tickets instead of paying full price. But you don't need to work for an airline to use these techniques—there are many ways to access similar benefits.</p>
+    
+    <h3>How It Works</h3>
+    <p>Airlines generate revenue from passenger tickets. But they also operate many flights that carry empty seats. Instead of flying empty, airlines fill these seats with employees at heavily discounted rates. Flight attendants, pilots, ground staff, and their families can access these standby fares.</p>
+
+    <div class="guide-highlight">
+      <p>💡 Insider Tip: Even without airline connections, you can access similar discounts through airline passes, credit card benefits, and travel hacking strategies.</p>
+    </div>
+
+    <h3>Key Benefits</h3>
+    <ul class="guide-list">
+      <li>Domestic flights for $0-$150 vs $300-$500 average</li>
+      <li>International flights for $100-$400 vs $800-$1,500 average</li>
+      <li>Flexible standby options for unplanned trips</li>
+      <li>Access to exclusive airline perks and lounges</li>
+      <li>Priority rebooking on overbooked flights</li>
+    </ul>
+  </section>
+
+  <!-- CTA Section 1 -->
+  <section class="guide-cta-section">
+    <h3>Ready to Start Flying Cheaper?</h3>
+    <p>Learn the exact strategies in the sections below, then come back to find the best flight deals and tools.</p>
+    <div class="guide-cta-buttons">
+      <a href="https://www.skyscanner.net/transport/flights/?associateid=AFFILIATE_ID&subid=start_here_flight_deals&utm_source=nonrevinsider&utm_medium=affiliate&utm_campaign=start_here" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Check Flight Deals Now</a>
+      <a href="#newsletter" class="btn btn-secondary">Send Me Weekly Deals</a>
+    </div>
+  </section>
+
+  <!-- Section 3: How Flight Attendants Save Money -->
+  <section class="guide-section">
+    <h2>How Flight Attendants Save Money</h2>
+    <p>Flight attendants use multiple strategies to maximize savings. Here are the proven methods used by travel professionals:</p>
+
+    <h3>1. Leverage Airline Standby Benefits</h3>
+    <p>Employees get standby fares—sometimes free or nearly free for direct flights. They plan trips around flight availability and flexibility.</p>
+
+    <h3>2. Use Strategic Credit Cards</h3>
+    <p>Premium travel credit cards offer 50,000-75,000 bonus points worth $500-$1,000 in free flights. Used strategically, this covers multiple trips annually.</p>
+
+    <h3>3. Book During Sales & Flash Deals</h3>
+    <p>Airlines frequently run sales lasting 24-48 hours. Flight crews monitor these religiously and book immediately when their desired routes go on sale.</p>
+
+    <h3>4. Travel During Off-Peak Seasons</h3>
+    <p>Flying Tuesday-Thursday in September-October saves 40-60% compared to weekend travel in busy seasons.</p>
+
+    <h3>5. Use Mistake Fares</h3>
+    <p>Airlines occasionally price flights incorrectly. Alert communities catch these errors within hours. Flight crews pounce on them immediately.</p>
+
+    <div class="guide-highlight">
+      <p>📌 Pro Strategy: Combine methods. Use credit card points for the flight, book during a sale price, travel off-peak, and you could fly internationally for $0 out of pocket.</p>
+    </div>
+
+    <h3>6. Work Positioning Flights</h3>
+    <p>Flight attendants position (deadhead) to distant hubs to pick up better-paying flights. They take advantage of positioning fares to explore those cities cheaply.</p>
+  </section>
+
+  <!-- Section 4: Best Tools for Cheap Flights -->
+  <section class="guide-section">
+    <h2>Best Tools for Finding Cheap Flights</h2>
+    <p>These are the tools flight crews actually use daily to find deals:</p>
+
+    <h3>Flight Search Engines</h3>
+    <ul class="guide-list">
+      <li>Skyscanner – Flexibility search, price alerts, route finder</li>
+      <li>Google Flights – Calendar view, track prices over time</li>
+      <li>Momondo – Compares hundreds of sites, finds hidden deals</li>
+      <li>Kayak – Price history, flexible dates, multi-city search</li>
+    </ul>
+
+    <h3>Alert Services</h3>
+    <ul class="guide-list">
+      <li>Hopper – AI predictions, price drop notifications</li>
+      <li>Secret Flying – Daily mistake fares and deals</li>
+      <li>The Points Guy – Travel hacking strategies and deals</li>
+      <li>Scott's Cheap Flights – Weekly email of cheap flights from your airport</li>
+    </ul>
+
+    <h3>Credit Card Programs</h3>
+    <ul class="guide-list">
+      <li>Chase Sapphire Preferred – 3x points on travel</li>
+      <li>American Express Platinum – Airline fee credits, lounge access</li>
+      <li>Capital One Venture X – Flat rate on all flights</li>
+      <li>United Explorer Card – Free checked bags, priority boarding</li>
+    </ul>
+
+    <div class="guide-highlight">
+      <p>🔧 Setup Tip: Create price alerts on Google Flights + Hopper for your favorite routes. Check Scott's Cheap Flights email 3x weekly. Follow Secret Flying on Twitter. You'll catch 90% of deals.</p>
+    </div>
+  </section>
+
+  <!-- CTA Section 2 -->
+  <section class="guide-cta-section">
+    <h3>Find Your Next Cheap Flight</h3>
+    <p>Use these proven tools and deal sites to discover flights at 50-80% off regular prices.</p>
+    <div class="guide-cta-buttons">
+      <a href="https://www.skyscanner.net/transport/flights/?associateid=AFFILIATE_ID&subid=start_here_price_drops&utm_source=nonrevinsider&utm_medium=affiliate&utm_campaign=start_here" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Track Price Drops</a>
+      <a href="https://www.expedia.com/Flights?affcid=AFFILIATE_ID&subid=start_here_live_travel_deals&utm_source=nonrevinsider&utm_medium=affiliate&utm_campaign=start_here" target="_blank" rel="noopener noreferrer" class="btn btn-primary">See Live Travel Deals</a>
+    </div>
+  </section>
+
+  <!-- Section 5: Packing Like a Flight Attendant -->
+  <section class="guide-section">
+    <h2>Packing Like a Flight Attendant</h2>
+    <p>Flight crew members travel with minimal luggage. Here's how to pack efficiently:</p>
+
+    <h3>The Carry-On Philosophy</h3>
+    <p>Flight attendants live out of a single roll-on bag. This saves checked bag fees ($35-$50 per flight both ways) and means zero luggage delays or loss.</p>
+
+    <h3>Packing Essentials</h3>
+    <ul class="guide-list">
+      <li>One quality carry-on bag (TSA-approved, 22"x14"x9")</li>
+      <li>5-7 pieces of versatile clothing (mix and match)</li>
+      <li>Neutral colors (black, navy, white, grey)</li>
+      <li>One pair each: dress shoes, casual shoes, athletic shoes</li>
+      <li>Quality undergarments and minimalist toiletries</li>
+      <li>Electronics: phone, chargers, headphones, laptop</li>
+    </ul>
+
+    <h3>Money-Saving Tips</h3>
+    <ul class="guide-list">
+      <li>Avoid checked bags ($35-$150 per trip saved)</li>
+      <li>Wear your bulkiest item during travel</li>
+      <li>Use packing cubes to maximize space</li>
+      <li>Choose wrinkle-resistant fabrics</li>
+      <li>Do laundry in hostels or hotels mid-trip</li>
+    </ul>
+
+    <div class="guide-highlight">
+      <p>💰 Cost Savings: Eliminate checked bags and you save $70-$300 per trip (international). Over 10 trips annually, that's $700-$3,000 saved.</p>
+    </div>
+  </section>
+
+  <!-- Section 6: Common Mistakes to Avoid -->
+  <section class="guide-section">
+    <h2>Common Mistakes to Avoid</h2>
+    <p>Even experienced travelers make these errors. Don't let that be you:</p>
+
+    <h3>❌ Booking at the Last Minute</h3>
+    <p>✓ Do this instead: Book 2-3 months in advance for international flights, 3-6 weeks for domestic.</p>
+
+    <h3>❌ Only Checking One Search Engine</h3>
+    <p>✓ Do this instead: Compare Skyscanner, Google Flights, and Kayak. Prices vary by $50-$300.</p>
+
+    <h3>❌ Flying Friday-Sunday</h3>
+    <p>✓ Do this instead: Fly Tuesday-Thursday and save 30-50% on tickets.</p>
+
+    <h3>❌ Paying Full Price Without Points</h3>
+    <p>✓ Do this instead: Use credit card points or airline miles. Most people have $500-$1,000 in untapped points value.</p>
+
+    <h3>❌ Flying Into Major Hub Airports</h3>
+    <p>✓ Do this instead: Fly into secondary airports. New York (LGA/JFK) to Denver (DEN) vs Austin (AUS) often shows $100-$200 savings.</p>
+
+    <h3>❌ Overpacking & Paying Baggage Fees</h3>
+    <p>✓ Do this instead: Master the carry-on. Most trips need only one small bag.</p>
+
+    <h3>❌ Ignoring Airline Award Calendars</h3>
+    <p>✓ Do this instead: Book award flights when they're cheaper in points (off-season rates).</p>
+
+    <h3>❌ Not Using Price Alerts</h3>
+    <p>✓ Do this instead: Set up Google Flights alerts. Get notified instantly when prices drop.</p>
+  </section>
+
+  <!-- CTA Section 3 -->
+  <section class="guide-cta-section">
+    <h3>Start Your Travel Hacking Journey</h3>
+    <p>Now that you know the secrets, join thousands of travelers saving money on flights every month.</p>
+    <div class="guide-cta-buttons">
+      <a href="https://www.skyscanner.net/transport/flights/?associateid=AFFILIATE_ID&subid=start_here_best_fares&utm_source=nonrevinsider&utm_medium=affiliate&utm_campaign=start_here" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Find Today's Best Fares</a>
+      <a href="#newsletter" class="btn btn-secondary">Get Deal Alerts</a>
+    </div>
+  </section>
+
+  <!-- Summary -->
+  <section class="guide-section">
+    <h2>Your Action Plan</h2>
+    <p>Here's what to do right now:</p>
+    <ul class="guide-list">
+      <li>Set up price alerts on Google Flights and Hopper</li>
+      <li>Research the best travel credit card for your needs</li>
+      <li>Download Scott's Cheap Flights and enable notifications</li>
+      <li>Plan your first trip for off-peak season (September or November)</li>
+      <li>Join the Nonrev Insider newsletter for deal notifications</li>
+      <li>Share this guide with friends who want to travel more for less</li>
+    </ul>
+
+    <div class="guide-highlight">
+      <p>🎯 Goal: Your first trip using these strategies should cost 50-70% less than your typical vacation. You've got this!</p>
+    </div>
+  </section>
+
+  <!-- Related Articles -->
+  <div class="guide-related">
+    <h3>Up Next: Explore More Strategies</h3>
+    <div class="guide-related-links">
+      <div class="guide-related-item">
+        <h4>Best Days to Book Flights</h4>
+        <p>Data-backed timing guidance to improve your booking results in 2026.</p>
+        <a href="best-days-to-book-flights.html" class="guide-related-link">Read Article →</a>
+      </div>
+      <div class="guide-related-item">
+        <h4>How to Fly Cheap (2026 Guide)</h4>
+        <p>Practical step-by-step system for lower fares, alerts, and route strategy.</p>
+        <a href="how-to-fly-cheap-2026-guide.html" class="guide-related-link">Read Article →</a>
+      </div>
+      <div class="guide-related-item">
+        <h4>Standby Travel Explained</h4>
+        <p>Understand standby priority, clearance strategy, and backup planning.</p>
+        <a href="standby-travel-explained.html" class="guide-related-link">Read Article →</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Newsletter CTA -->
+<section class="newsletter" id="newsletter">
+  <div class="newsletter-content">
+    <div class="newsletter-text">
+      <h2>Get Insider Travel Hacks Weekly</h2>
+      <p>Join 50,000+ travelers discovering proven strategies, flash-fare alerts, and insider booking tips.</p>
+    </div>
+    <form class="newsletter-form" id="newsletterForm">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit" class="btn btn-primary">Send Me Insider Tips</button>
+    </form>
+    <p class="newsletter-note">✓ Free weekly alerts. No spam. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Nonrev Insider</h4>
+        <p>Your guide to traveling like a flight attendant.</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="start-here.html">Start Here</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="deals.html">Deals</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="mailto:hello@nonrevinsider.com">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#newsletter">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-disclosure">
+      <p><strong>Affiliate Disclosure:</strong> Nonrev Insider is a participant in affiliate programs including Amazon Associates and other travel service providers. When you click on links and make purchases through our recommended tools and services, we may earn a commission at no cost to you. We only recommend products and services we genuinely believe will help you travel smarter and save money. Your trust is our most valuable asset.</p>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Nonrev Insider. All rights reserved. | Travel Hacks & Insider Strategies</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
