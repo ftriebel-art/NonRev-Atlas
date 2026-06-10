@@ -748,6 +748,16 @@ const motionCards = document.querySelectorAll(
 
 motionCards.forEach(card => {
 
+/* =========================
+   PREMIUM GLASS MOTION
+========================= */
+
+const motionCards = document.querySelectorAll(
+  '.destination-card, .dashboard-card, .hub-card, .family-card, .hero-panel'
+);
+
+motionCards.forEach(card => {
+
   card.addEventListener('mousemove', e => {
 
     const rect = card.getBoundingClientRect();
@@ -758,15 +768,24 @@ motionCards.forEach(card => {
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    const rotateX = ((y - centerY) / centerY) * -6;
-    const rotateY = ((x - centerX) / centerX) * 6;
+    const rotateX = ((y - centerY) / centerY) * -8;
+    const rotateY = ((x - centerX) / centerX) * 8;
 
     card.style.transform = `
-      perspective(1200px)
+      perspective(1400px)
       rotateX(${rotateX}deg)
       rotateY(${rotateY}deg)
-      translateY(-8px)
-      scale(1.02)
+      translateY(-10px)
+      scale(1.025)
+    `;
+
+    card.style.background = `
+      radial-gradient(
+        circle at ${x}px ${y}px,
+        rgba(255,255,255,.16),
+        rgba(255,255,255,.04) 28%,
+        rgba(255,255,255,.03) 60%
+      )
     `;
 
   });
@@ -774,11 +793,15 @@ motionCards.forEach(card => {
   card.addEventListener('mouseleave', () => {
 
     card.style.transform = `
-      perspective(1200px)
+      perspective(1400px)
       rotateX(0deg)
       rotateY(0deg)
       translateY(0px)
       scale(1)
+    `;
+
+    card.style.background = `
+      rgba(255,255,255,.05)
     `;
 
   });

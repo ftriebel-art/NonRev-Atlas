@@ -1676,4 +1676,54 @@ display:none;
 }
 
 }
+/* PREMIUM GLASS LIGHTING */
+
+.destination-card,
+.dashboard-card,
+.hub-card,
+.family-card,
+.hero-panel{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.destination-card::after,
+.dashboard-card::after,
+.hub-card::after,
+.family-card::after,
+.hero-panel::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+135deg,
+rgba(255,255,255,.12),
+transparent 30%
+);
+
+opacity:.35;
+
+pointer-events:none;
+
+transition:opacity .35s ease;
+
+}
+
+.destination-card:hover::after,
+.dashboard-card:hover::after,
+.hub-card:hover::after,
+.family-card:hover::after,
+.hero-panel:hover::after{
+
+opacity:.65;
+
+}
 }
