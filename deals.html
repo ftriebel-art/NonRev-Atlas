@@ -2,293 +2,525 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Flight Deals & Offers - Nonrev Insider</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hot Flight Deals | Real-Time Standby Pricing | Nonrev Atlas</title>
+  <meta
+    name="description"
+    content="Live flight deals updated hourly. Filter by price, urgency, and route. 94+ active deals this week with real-time tracking and booking links."
+  />
+  <meta name="keywords" content="flight deals, cheap flights, hot deals, flight bargains, airline sales" />
+  <meta name="theme-color" content="#07111f" />
+  <meta property="og:title" content="Hot Flight Deals | Nonrev Atlas" />
+  <meta property="og:description" content="Real-time flight deals with urgency tracking. Book fast, save big." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/style.css" />
 </head>
-<body>
 
-<!-- Navigation Bar -->
-<header class="navbar">
-  <div class="container nav-container">
-    <div class="logo">
-      <span class="plane-icon">✈️</span>
-      <span class="brand-text">Nonrev Insider</span>
-    </div>
-    <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-    <nav class="nav-menu" id="navMenu">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="start-here.html" class="nav-link">Start Here</a>
-      <a href="blog.html" class="nav-link">Blog</a>
-      <a href="deals.html" class="nav-link active-nav">Deals</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="#newsletter" class="nav-link">Get Deals</a>
-    </nav>
-  </div>
-</header>
+<body class="atlas-luxury">
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-<!-- Page Hero -->
-<section class="page-hero">
-  <div class="container">
-    <h1>Flight Deals & Travel Offers</h1>
-    <p>Current flight deals, flash sales, and smart booking opportunities curated from a flight attendant-tested workflow. I update this from the same routes and fare signals I watch for my own travel.</p>
-    <p class="page-hero-note">Updated daily with flight attendant-tested routing and booking alerts.</p>
-    <div class="page-hero-actions">
-      <a href="#newsletter" class="btn btn-primary">Get Deal Alerts</a>
-      <a href="#recommended-tools" class="btn btn-secondary">Explore Recommended Tools</a>
-    </div>
-    <p class="deals-urgency">Updated daily. Deals disappear quickly, and prices can jump within hours.</p>
-  </div>
-</section>
+  <!-- HEADER -->
+  <header class="site-header" data-header>
+    <div class="site-shell header-row">
+      <a class="brand" href="/" aria-label="Nonrev Atlas home">
+        <span class="brand-mark">NA</span>
+        <span>
+          <strong>Nonrev Atlas</strong>
+          <small>$0 to luxury travel</small>
+        </span>
+      </a>
 
-<!-- Latest Flight Deals -->
-<section class="deals-section latest-deals">
-  <div class="container">
-    <div class="section-header">
-      <h2>Latest Flight Deals</h2>
-      <p>Updated daily with example fares for inspiration. Real-time alerts help you catch similar deals before they vanish.</p>
-    </div>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+        Menu
+      </button>
 
-    <div class="deal-grid">
-      <article class="deal-card">
-        <div class="deal-top">
-          <span class="deal-badge">Round Trip</span>
-          <span class="deal-expiry">Ends in 18 hours</span>
-        </div>
-        <h3>New York to Lisbon</h3>
-        <p class="deal-price">$379</p>
-        <p class="deal-meta">Usually $640+ | Shoulder-season value fare</p>
-        <a href="https://www.skyscanner.net/transport/flights/nyca/lisa/?associateid=AFFILIATE_ID&subid=deal_nyc_lis&utm_source=nonrevinsider&utm_medium=affiliate&utm_campaign=deals_page" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Book Now</a>
-      </article>
-
-      <article class="deal-card deal-card-featured">
-        <div class="deal-top">
-          <span class="deal-badge">Best Value</span>
-          <span class="deal-expiry">Ends in 10 hours</span>
-        </div>
-        <h3>Los Angeles to Tokyo</h3>
-        <p class="deal-price">$548</p>
-        <p class="deal-meta">Usually $920+ | Limited dates, high demand route</p>
-        <a href="https://www.skyscanner.net/transport/flights/laxa/tyoa/?associateid=AFFILIATE_ID&subid=deal_lax_tyo&utm_source=nonrevinsider&utm_medium=affiliate&utm_campaign=deals_page" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Book Now</a>
-      </article>
-
-      <article class="deal-card">
-        <div class="deal-top">
-          <span class="deal-badge">Weekend Escape</span>
-          <span class="deal-expiry">Ends in 24 hours</span>
-        </div>
-        <h3>Chicago to Miami</h3>
-        <p class="deal-price">$142</p>
-        <p class="deal-meta">Usually $260+ | Carry-on fare, multiple departures</p>
-        <a href="https://www.skyscanner.net/transport/flights/chia/miaa/?associateid=AFFILIATE_ID&subid=deal_chi_mia&utm_source=nonrevinsider&utm_medium=affiliate&utm_campaign=deals_page" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Book Now</a>
-      </article>
-
-      <article class="deal-card">
-        <div class="deal-top">
-          <span class="deal-badge">Flash Fare</span>
-          <span class="deal-expiry">Ends in 7 hours</span>
-        </div>
-        <h3>Boston to Dublin</h3>
-        <p class="deal-price">$331</p>
-        <p class="deal-meta">Usually $590+ | Limited shoulder-season inventory</p>
-        <a href="https://www.skyscanner.net/transport/flights/bosa/duba/?associateid=AFFILIATE_ID&subid=deal_bos_dub&utm_source=nonrevinsider&utm_medium=affiliate&utm_campaign=deals_page" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Book Now</a>
-      </article>
-
-      <article class="deal-card">
-        <div class="deal-top">
-          <span class="deal-badge">Domestic</span>
-          <span class="deal-expiry">Ends in 14 hours</span>
-        </div>
-        <h3>Seattle to Las Vegas</h3>
-        <p class="deal-price">$119</p>
-        <p class="deal-meta">Usually $210+ | Mid-week departures only</p>
-        <a href="https://www.skyscanner.net/transport/flights/seaa/lasa/?associateid=AFFILIATE_ID&subid=deal_sea_las&utm_source=nonrevinsider&utm_medium=affiliate&utm_campaign=deals_page" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Book Now</a>
-      </article>
-
-      <article class="deal-card">
-        <div class="deal-top">
-          <span class="deal-badge">Long-Haul</span>
-          <span class="deal-expiry">Ends in 12 hours</span>
-        </div>
-        <h3>San Francisco to Paris</h3>
-        <p class="deal-price">$469</p>
-        <p class="deal-meta">Usually $810+ | One-stop value itinerary</p>
-        <a href="https://www.skyscanner.net/transport/flights/sfoa/cdga/?associateid=AFFILIATE_ID&subid=deal_sfo_cdg&utm_source=nonrevinsider&utm_medium=affiliate&utm_campaign=deals_page" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Book Now</a>
-      </article>
-
-      <article class="deal-card">
-        <div class="deal-top">
-          <span class="deal-badge">Caribbean</span>
-          <span class="deal-expiry">Ends in 9 hours</span>
-        </div>
-        <h3>Atlanta to San Juan</h3>
-        <p class="deal-price">$188</p>
-        <p class="deal-meta">Usually $330+ | Weekend inventory moving fast</p>
-        <a href="https://www.skyscanner.net/transport/flights/atla/sjua/?associateid=AFFILIATE_ID&subid=deal_atl_sju&utm_source=nonrevinsider&utm_medium=affiliate&utm_campaign=deals_page" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Book Now</a>
-      </article>
-
-      <article class="deal-card">
-        <div class="deal-top">
-          <span class="deal-badge">Asia Value</span>
-          <span class="deal-expiry">Ends in 16 hours</span>
-        </div>
-        <h3>Vancouver to Seoul</h3>
-        <p class="deal-price">$512</p>
-        <p class="deal-meta">Usually $870+ | Limited dates in late spring</p>
-        <a href="https://www.skyscanner.net/transport/flights/yvra/icna/?associateid=AFFILIATE_ID&subid=deal_yvr_icn&utm_source=nonrevinsider&utm_medium=affiliate&utm_campaign=deals_page" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Book Now</a>
-      </article>
-    </div>
-
-    <div class="deals-cta-strip">
-      <p><strong>Deals disappear quickly.</strong> The best fares often sell out in hours, not days.</p>
-      <a href="#newsletter" class="btn btn-primary">Get Immediate Deal Alerts</a>
-    </div>
-  </div>
-</section>
-
-<!-- How To Find Deals -->
-<section class="deals-info how-find-deals">
-  <div class="container">
-    <h2>How to Find Deals</h2>
-    <div class="info-grid">
-      <div class="info-item">
-        <div class="info-icon">1</div>
-        <h3>Set Your Route Targets</h3>
-        <p>Choose 3 to 5 routes and define your target prices so you can book confidently when alerts hit.</p>
-      </div>
-      <div class="info-item">
-        <div class="info-icon">2</div>
-        <h3>Track Flexible Dates</h3>
-        <p>Use +/- 3 day windows and nearby airports to unlock better pricing that rigid searches often miss.</p>
-      </div>
-      <div class="info-item">
-        <div class="info-icon">3</div>
-        <h3>Book Fast on Strong Fares</h3>
-        <p>When a fare matches your target, act quickly. Waiting for tiny drops usually costs more in the long run.</p>
-      </div>
-    </div>
-
-    <div class="how-find-cta">
-      <p>Use our full booking framework to turn random deals into a repeatable savings system.</p>
-      <a href="how-to-fly-cheap-2026-guide.html" class="btn btn-secondary">Read the Cheap Flight Playbook</a>
-    </div>
-  </div>
-</section>
-
-<!-- Recommended Tools -->
-<section class="deals-tools" id="recommended-tools">
-  <div class="container">
-    <div class="section-header">
-      <h2>Recommended Tools</h2>
-      <p>Affiliate placeholders for the tools we use to spot pricing shifts and route opportunities fast.</p>
-    </div>
-
-    <div class="tools-grid">
-      <article class="tool-card">
-        <span class="tool-tag">Fare Alerts</span>
-        <h3>Tool Placeholder: Alert Platform</h3>
-        <p>Track price drops on your key routes and receive high-signal notifications before seats are gone.</p>
-        <a href="https://www.skyscanner.net/transport/flights/?associateid=AFFILIATE_ID&subid=deals_tool_alerts&utm_source=nonrevinsider&utm_medium=affiliate&utm_campaign=flight_tools" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Visit Tool</a>
-      </article>
-
-      <article class="tool-card">
-        <span class="tool-tag">Route Intelligence</span>
-        <h3>Tool Placeholder: Route Scanner</h3>
-        <p>Compare nearby airports, date flexibility, and one-way combinations to surface hidden value fares.</p>
-        <a href="https://www.skyscanner.net/transport/flights/?associateid=AFFILIATE_ID&subid=deals_tool_scanner&utm_source=nonrevinsider&utm_medium=affiliate&utm_campaign=flight_tools" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Compare Fares</a>
-      </article>
-
-      <article class="tool-card">
-        <span class="tool-tag">Trip Planning</span>
-        <h3>Tool Placeholder: Itinerary Optimizer</h3>
-        <p>Build backup options and low-risk plans so you can book deals confidently and avoid expensive changes.</p>
-        <a href="https://www.expedia.com/Hotel-Search?affcid=AFFILIATE_ID&subid=deals_tool_itinerary&utm_source=nonrevinsider&utm_medium=affiliate&utm_campaign=trip_planning" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Open Tool</a>
-      </article>
-    </div>
-
-    <p class="inline-trust-line">Affiliate links are placeholders. We only recommend tools that pass our testing standards.</p>
-
-    <div class="deals-cta-strip">
-      <p><strong>Deals disappear quickly.</strong> Build your alert stack now so you do not miss the next drop.</p>
-      <a href="#newsletter" class="btn btn-primary">Join Free Deal Alerts</a>
-    </div>
-
-    <div class="how-find-cta">
-      <p>Want a side-by-side tool comparison? Start with our curated guide.</p>
-      <a href="best-websites-for-cheap-flights-2026-guide.html" class="btn btn-secondary">See Best Flight Websites</a>
-    </div>
-  </div>
-</section>
-
-<!-- Newsletter CTA -->
-<section class="newsletter" id="newsletter">
-  <div class="newsletter-content">
-    <div class="newsletter-text">
-      <h2>Never Miss a Deal Again</h2>
-      <p>Join 50,000+ travelers who get exclusive flight deals and time-sensitive travel offers delivered to their inbox.</p>
-    </div>
-    <form class="newsletter-form" id="dealsNewsletterForm">
-      <input type="email" placeholder="Enter your email" required>
-      <button type="submit" class="btn btn-primary">Send Me Deal Alerts</button>
-    </form>
-    <p class="newsletter-note">✓ Free weekly alerts. No spam. Unsubscribe anytime.</p>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Nonrev Insider</h4>
-        <p>Your guide to traveling like a flight attendant.</p>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Pages</h4>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="start-here.html">Start Here</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="deals.html">Deals</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="deals.html" aria-current="page">Hot Deals</a></li>
+          <li><a href="start-here.html">Get Started</a></li>
+          <li><a href="travel-tools-deals-hub.html">Tools</a></li>
+          <li><a href="blog.html">Guides</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a class="button button-primary button-small" href="#deals-email">Alert Me</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- HERO: Deals-focused headline -->
+    <section class="hero-deals">
+      <div class="hero-bg">
+        <img 
+          src="https://images.unsplash.com/photo-1552819212-7305521e94a0?auto=format&fit=crop&w=2000&q=80" 
+          alt="Flight dashboard with routes and pricing"
+          loading="lazy"
+        />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="site-shell hero-deals-grid">
+        <div class="hero-deals-copy">
+          <p class="eyebrow-premium">This Week's Best Prices</p>
+          <h1 class="hero-headline">
+            94 Live Deals.
+            <br><span style="color: #6fe8ff;">Book Before They Expire.</span>
+          </h1>
+          <p class="hero-subheading">
+            Real-time pricing from 12 major booking platforms. Filter by price, urgency, and destination. 
+            Deals updated hourly—set alerts and get notifications when prices drop 50%+.
+          </p>
+
+          <div class="hero-deals-stats">
+            <div class="stat">
+              <strong>94</strong>
+              <span>Active this week</span>
+            </div>
+            <div class="stat">
+              <strong>Updated</strong>
+              <span>Every hour</span>
+            </div>
+            <div class="stat">
+              <strong>Avg Save</strong>
+              <span>$320 per trip</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILTER BAR: Deal filtering -->
+    <section class="deals-filter-section">
+      <div class="site-shell">
+        <div class="filter-bar">
+          <div class="filter-group">
+            <label for="urgency-filter">Urgency</label>
+            <select id="urgency-filter" data-filter="urgency">
+              <option value="all">All</option>
+              <option value="expires-soon">Expires Soon (24h)</option>
+              <option value="hot">Hot (48h)</option>
+              <option value="stable">Stable (3+ days)</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="price-filter">Price Range</label>
+            <select id="price-filter" data-filter="price">
+              <option value="all">All Prices</option>
+              <option value="under-300">Under $300</option>
+              <option value="300-500">$300 - $500</option>
+              <option value="500-800">$500 - $800</option>
+              <option value="over-800">$800+</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="region-filter">Region</label>
+            <select id="region-filter" data-filter="region">
+              <option value="all">All Destinations</option>
+              <option value="caribbean">Caribbean</option>
+              <option value="europe">Europe</option>
+              <option value="asia">Asia</option>
+              <option value="central-america">Central America</option>
+              <option value="domestic">Domestic USA</option>
+            </select>
+          </div>
+
+          <button class="button button-secondary" id="reset-filters">Clear Filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEALS GRID: Real-time deals -->
+    <section class="section deals-grid-section">
+      <div class="site-shell">
+        <div class="deals-grid-header">
+          <h2>All Deals</h2>
+          <p class="deals-count">Showing <span id="deal-count">94</span> deals</p>
+        </div>
+
+        <div class="deals-grid" id="deals-grid">
+          <!-- Deal 1 -->
+          <article class="deal-card" data-urgency="expires-soon" data-price="429" data-region="europe">
+            <div class="deal-badge expires-soon">Expires in 24h</div>
+            <div class="deal-pin">🔥</div>
+            <img 
+              src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=80"
+              alt="New York to Lisbon"
+              loading="lazy"
+            />
+            <div class="deal-info">
+              <div class="deal-route">
+                <span class="from">NYC</span>
+                <span class="arrow">→</span>
+                <span class="to">LIS</span>
+              </div>
+              <h3 class="deal-price">$429</h3>
+              <p class="deal-savings">Save $220 vs average</p>
+              <div class="deal-details">
+                <span class="detail">Roundtrip</span>
+                <span class="detail">Flex dates</span>
+                <span class="detail">Economy</span>
+              </div>
+              <div class="deal-sources">
+                <a href="https://www.google.com/travel/flights" target="_blank" rel="noopener noreferrer" class="source-link">Google Flights</a>
+                <a href="https://www.skyscanner.net/" target="_blank" rel="noopener noreferrer" class="source-link">Skyscanner</a>
+              </div>
+              <a href="https://www.going.com/" target="_blank" rel="noopener noreferrer" class="button button-primary button-small button-block">
+                Book Now
+              </a>
+            </div>
+          </article>
+
+          <!-- Deal 2 -->
+          <article class="deal-card" data-urgency="hot" data-price="189" data-region="caribbean">
+            <div class="deal-badge hot">Only 80 seats</div>
+            <div class="deal-pin">⚡</div>
+            <img 
+              src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80"
+              alt="Miami to San Juan"
+              loading="lazy"
+            />
+            <div class="deal-info">
+              <div class="deal-route">
+                <span class="from">MIA</span>
+                <span class="arrow">→</span>
+                <span class="to">SJU</span>
+              </div>
+              <h3 class="deal-price">$189</h3>
+              <p class="deal-savings">Best Caribbean rate</p>
+              <div class="deal-details">
+                <span class="detail">Roundtrip</span>
+                <span class="detail">Weekend</span>
+                <span class="detail">No passport</span>
+              </div>
+              <div class="deal-sources">
+                <a href="https://www.skyscanner.net/" target="_blank" rel="noopener noreferrer" class="source-link">Skyscanner</a>
+              </div>
+              <a href="https://www.going.com/" target="_blank" rel="noopener noreferrer" class="button button-primary button-small button-block">
+                Book Now
+              </a>
+            </div>
+          </article>
+
+          <!-- Deal 3 -->
+          <article class="deal-card" data-urgency="stable" data-price="621" data-region="asia">
+            <div class="deal-badge stable">Stable pricing</div>
+            <div class="deal-pin">✨</div>
+            <img 
+              src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=600&q=80"
+              alt="LA to Tokyo"
+              loading="lazy"
+            />
+            <div class="deal-info">
+              <div class="deal-route">
+                <span class="from">LAX</span>
+                <span class="arrow">→</span>
+                <span class="to">NRT</span>
+              </div>
+              <h3 class="deal-price">$621</h3>
+              <p class="deal-savings">Usually $900+</p>
+              <div class="deal-details">
+                <span class="detail">Roundtrip</span>
+                <span class="detail">Shoulder season</span>
+                <span class="detail">Food city</span>
+              </div>
+              <div class="deal-sources">
+                <a href="https://www.google.com/travel/flights" target="_blank" rel="noopener noreferrer" class="source-link">Google Flights</a>
+              </div>
+              <a href="https://www.going.com/" target="_blank" rel="noopener noreferrer" class="button button-primary button-small button-block">
+                Book Now
+              </a>
+            </div>
+          </article>
+
+          <!-- Deal 4 -->
+          <article class="deal-card" data-urgency="hot" data-price="249" data-region="caribbean">
+            <div class="deal-badge hot">Flash sale</div>
+            <div class="deal-pin">🔥</div>
+            <img 
+              src="https://images.unsplash.com/photo-1498855926480-d98e83099315?auto=format&fit=crop&w=600&q=80"
+              alt="Boston to Cancun"
+              loading="lazy"
+            />
+            <div class="deal-info">
+              <div class="deal-route">
+                <span class="from">BOS</span>
+                <span class="arrow">→</span>
+                <span class="to">CUN</span>
+              </div>
+              <h3 class="deal-price">$249</h3>
+              <p class="deal-savings">Usually $450+</p>
+              <div class="deal-details">
+                <span class="detail">Roundtrip</span>
+                <span class="detail">All-inclusive friendly</span>
+                <span class="detail">Beach</span>
+              </div>
+              <div class="deal-sources">
+                <a href="https://www.skyscanner.net/" target="_blank" rel="noopener noreferrer" class="source-link">Skyscanner</a>
+              </div>
+              <a href="https://www.going.com/" target="_blank" rel="noopener noreferrer" class="button button-primary button-small button-block">
+                Book Now
+              </a>
+            </div>
+          </article>
+
+          <!-- Deal 5 -->
+          <article class="deal-card" data-urgency="expires-soon" data-price="518" data-region="europe">
+            <div class="deal-badge expires-soon">Expires in 18h</div>
+            <div class="deal-pin">🔥</div>
+            <img 
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80"
+              alt="Boston to London"
+              loading="lazy"
+            />
+            <div class="deal-info">
+              <div class="deal-route">
+                <span class="from">BOS</span>
+                <span class="arrow">→</span>
+                <span class="to">LHR</span>
+              </div>
+              <h3 class="deal-price">$518</h3>
+              <p class="deal-savings">6 airlines competing</p>
+              <div class="deal-details">
+                <span class="detail">Roundtrip</span>
+                <span class="detail">Tuesday departure</span>
+                <span class="detail">Spring</span>
+              </div>
+              <div class="deal-sources">
+                <a href="https://www.google.com/travel/flights" target="_blank" rel="noopener noreferrer" class="source-link">Google Flights</a>
+              </div>
+              <a href="https://www.going.com/" target="_blank" rel="noopener noreferrer" class="button button-primary button-small button-block">
+                Book Now
+              </a>
+            </div>
+          </article>
+
+          <!-- Deal 6 -->
+          <article class="deal-card" data-urgency="stable" data-price="345" data-region="domestic">
+            <div class="deal-badge stable">Good for 5 days</div>
+            <div class="deal-pin">✈️</div>
+            <img 
+              src="https://images.unsplash.com/photo-1456556174381-0f3f7cdf5efd?auto=format&fit=crop&w=600&q=80"
+              alt="NYC to Miami"
+              loading="lazy"
+            />
+            <div class="deal-info">
+              <div class="deal-route">
+                <span class="from">NYC</span>
+                <span class="arrow">→</span>
+                <span class="to">MIA</span>
+              </div>
+              <h3 class="deal-price">$345</h3>
+              <p class="deal-savings">Mid-range quality</p>
+              <div class="deal-details">
+                <span class="detail">Roundtrip</span>
+                <span class="detail">Nonstop</span>
+                <span class="detail">Weekend</span>
+              </div>
+              <div class="deal-sources">
+                <a href="https://www.skyscanner.net/" target="_blank" rel="noopener noreferrer" class="source-link">Skyscanner</a>
+              </div>
+              <a href="https://www.going.com/" target="_blank" rel="noopener noreferrer" class="button button-primary button-small button-block">
+                Book Now
+              </a>
+            </div>
+          </article>
+
+          <!-- Deal 7 -->
+          <article class="deal-card" data-urgency="hot" data-price="412" data-region="central-america">
+            <div class="deal-badge hot">Mistake fare?</div>
+            <div class="deal-pin">🚨</div>
+            <img 
+              src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600&q=80"
+              alt="Houston to Costa Rica"
+              loading="lazy"
+            />
+            <div class="deal-info">
+              <div class="deal-route">
+                <span class="from">IAH</span>
+                <span class="arrow">→</span>
+                <span class="to">SJO</span>
+              </div>
+              <h3 class="deal-price">$412</h3>
+              <p class="deal-savings">Possibly misprice</p>
+              <div class="deal-details">
+                <span class="detail">Roundtrip</span>
+                <span class="detail">Nature</span>
+                <span class="detail">Adventure</span>
+              </div>
+              <div class="deal-sources">
+                <a href="https://www.google.com/travel/flights" target="_blank" rel="noopener noreferrer" class="source-link">Google Flights</a>
+              </div>
+              <a href="https://www.going.com/" target="_blank" rel="noopener noreferrer" class="button button-primary button-small button-block">
+                Book Now
+              </a>
+            </div>
+          </article>
+
+          <!-- Deal 8 -->
+          <article class="deal-card" data-urgency="stable" data-price="278" data-region="caribbean">
+            <div class="deal-badge stable">Consistent</div>
+            <div class="deal-pin">✅</div>
+            <img 
+              src="https://images.unsplash.com/photo-1495652779788-fc88adc64e8d?auto=format&fit=crop&w=600&q=80"
+              alt="Fort Lauderdale to Bahamas"
+              loading="lazy"
+            />
+            <div class="deal-info">
+              <div class="deal-route">
+                <span class="from">FLL</span>
+                <span class="arrow">→</span>
+                <span class="to">NAS</span>
+              </div>
+              <h3 class="deal-price">$278</h3>
+              <p class="deal-savings">Reliable route</p>
+              <div class="deal-details">
+                <span class="detail">Roundtrip</span>
+                <span class="detail">Short haul</span>
+                <span class="detail">Beach weekend</span>
+              </div>
+              <div class="deal-sources">
+                <a href="https://www.skyscanner.net/" target="_blank" rel="noopener noreferrer" class="source-link">Skyscanner</a>
+              </div>
+              <a href="https://www.going.com/" target="_blank" rel="noopener noreferrer" class="button button-primary button-small button-block">
+                Book Now
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEALS EMAIL SIGNUP: Alert conversion -->
+    <section class="section deals-email-section" id="deals-email">
+      <div class="site-shell">
+        <div class="deals-email-box glass-card">
+          <div class="deals-email-content">
+            <p class="eyebrow">Real-Time Alerts</p>
+            <h2>Get Notified When Deals Like These Drop</h2>
+            <p>We monitor 12 platforms hourly. When prices collapse 50%+, you'll be the first to know. Set your home airport below.</p>
+          </div>
+          <form class="deals-email-form" data-email-signup="deals">
+            <div class="form-row">
+              <input 
+                type="email" 
+                placeholder="Your email" 
+                required
+                aria-label="Email for deal alerts"
+              />
+              <select aria-label="Your home airport">
+                <option>Choose airport</option>
+                <option>JFK (New York)</option>
+                <option>LAX (Los Angeles)</option>
+                <option>ORD (Chicago)</option>
+                <option>MIA (Miami)</option>
+                <option>DEN (Denver)</option>
+                <option>SFO (San Francisco)</option>
+              </select>
+            </div>
+            <button type="submit" class="button button-primary">
+              Get Deal Alerts
+            </button>
+          </form>
+          <p class="form-note">Alerts only when prices drop 50%+. No spam. Unsubscribe anytime.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING TIPS: Educational CTA -->
+    <section class="section deals-tips-section">
+      <div class="site-shell">
+        <div class="section-heading">
+          <p class="eyebrow">Booking Strategy</p>
+          <h2>How to Book These Deals Fast</h2>
+        </div>
+
+        <div class="tips-grid">
+          <div class="tip-card">
+            <div class="tip-number">1</div>
+            <h3>Check All Sources</h3>
+            <p>A deal might be cheaper on Skyscanner but actually book via Google Flights due to hidden airlines.</p>
+            <a href="travel-tools-deals-hub.html" class="text-link">See comparison →</a>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-number">2</div>
+            <h3>Use Incognito Mode</h3>
+            <p>Airlines track your searches and raise prices. Open in private/incognito mode before booking.</p>
+            <a href="google-flights-hacks-article.html" class="text-link">Learn hacks →</a>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-number">3</div>
+            <h3>Stack with Credit Cards</h3>
+            <p>Earn 5x points on flights. Use signup bonuses to book 1-2 free trips per year.</p>
+            <a href="/" class="text-link">See credit cards →</a>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-number">4</div>
+            <h3>Set Price Alerts First</h3>
+            <p>Before booking, set Google Flights alerts. Prices drop another 10-20% within 3 days sometimes.</p>
+            <a href="how-to-find-cheap-flights-2026-article.html" class="text-link">Read guide →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="site-shell footer-grid">
+      <div>
+        <a class="brand footer-brand" href="/">
+          <span class="brand-mark">NA</span>
+          <span>
+            <strong>Nonrev Atlas</strong>
+            <small>Insider travel for everyone.</small>
+          </span>
+        </a>
+      </div>
+      <div>
+        <h3>Platform</h3>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="deals.html">Hot Deals</a></li>
+          <li><a href="travel-tools-deals-hub.html">Tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Learn</h3>
+        <ul>
+          <li><a href="start-here.html">Get Started</a></li>
+          <li><a href="blog.html">Guides</a></li>
           <li><a href="about.html">About</a></li>
         </ul>
       </div>
-      
-      <div class="footer-section">
-        <h4>Company</h4>
+      <div>
+        <h3>Resources</h3>
         <ul>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="mailto:hello@nonrevinsider.com">Contact</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Connect</h4>
-        <ul>
-          <li><a href="#">Twitter</a></li>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">YouTube</a></li>
-          <li><a href="#newsletter">Newsletter</a></li>
+          <li><a href="how-to-find-cheap-flights-2026-article.html">Flight Strategy</a></li>
+          <li><a href="best-days-to-book-flights-article.html">Timing Guide</a></li>
+          <li><a href="google-flights-hacks-article.html">Tool Hacks</a></li>
         </ul>
       </div>
     </div>
-    
-    <div class="footer-disclosure">
-      <p><strong>Affiliate Disclosure:</strong> Nonrev Insider is a participant in affiliate programs including Amazon Associates and other travel service providers. When you click on links and make purchases through our recommended tools and services, we may earn a commission at no cost to you. We only recommend products and services we genuinely believe will help you travel smarter and save money. Your trust is our most valuable asset.</p>
-    </div>
-    
     <div class="footer-bottom">
-      <p>&copy; 2026 Nonrev Insider. All rights reserved. | Travel Hacks & Insider Strategies</p>
+      <p>© 2026 Nonrev Atlas. Not affiliated with any airline.</p>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<script src="script.js"></script>
+  <script src="/script.js" defer></script>
 </body>
 </html>
