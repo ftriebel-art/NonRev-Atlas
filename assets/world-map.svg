@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+
+<rect width="1200" height="600" fill="transparent"/>
+
+<g fill="#ffffff" fill-opacity="0.08">
+
+<path d="M140 220L220 180L310 200L390 170L480 190L530 240L500 300L420 320L310 290L220 260Z"/>
+
+<path d="M620 170L700 140L790 160L860 220L820 290L720 300L650 260Z"/>
+
+<path d="M870 330L980 310L1080 350L1050 430L930 420Z"/>
+
+<path d="M300 400L420 390L510 450L460 520L320 500Z"/>
+
+</g>
+
+</svg>
