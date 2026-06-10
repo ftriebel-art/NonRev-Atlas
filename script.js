@@ -738,3 +738,87 @@ animateCounters();
 renderFavoritesSection();
 
 renderDestinations();
+/* =========================
+   PREMIUM MOTION SYSTEM
+========================= */
+
+const motionCards = document.querySelectorAll(
+  '.destination-card, .dashboard-card, .hub-card, .family-card, .hero-panel'
+);
+
+motionCards.forEach(card => {
+
+  card.addEventListener('mousemove', e => {
+
+    const rect = card.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * -6;
+    const rotateY = ((x - centerX) / centerX) * 6;
+
+    card.style.transform = `
+      perspective(1200px)
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
+      translateY(-8px)
+      scale(1.02)
+    `;
+
+  });
+
+  card.addEventListener('mouseleave', () => {
+
+    card.style.transform = `
+      perspective(1200px)
+      rotateX(0deg)
+      rotateY(0deg)
+      translateY(0px)
+      scale(1)
+    `;
+
+  });
+
+});
+
+/* =========================
+   MAGNETIC BUTTONS
+========================= */
+
+const magneticButtons = document.querySelectorAll(
+  '.primary-btn, .secondary-btn, .hero-search button'
+);
+
+magneticButtons.forEach(button => {
+
+  button.addEventListener('mousemove', e => {
+
+    const rect = button.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const moveX = (x - rect.width / 2) * 0.18;
+    const moveY = (y - rect.height / 2) * 0.18;
+
+    button.style.transform = `
+      translate(${moveX}px, ${moveY}px)
+      scale(1.04)
+    `;
+
+  });
+
+  button.addEventListener('mouseleave', () => {
+
+    button.style.transform = `
+      translate(0px, 0px)
+      scale(1)
+    `;
+
+  });
+
+});
