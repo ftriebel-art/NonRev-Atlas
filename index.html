@@ -1,121 +1,982 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nonrev Guide for Family</title>
-  <link rel="stylesheet" href="style.css"/>
+
+<meta charset="UTF-8" />
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
+
+<title>NonRev Atlas</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+rel="stylesheet"
+/>
+
+<link
+rel="stylesheet"
+href="style.css"
+/>
+
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>How I Fly For Free (And How You Can Too)</h1>
+<div class="background-grid"></div>
 
-    <p>
-      I made this simple guide so you can use my flight benefits
-      without confusion, stress, or guessing.
-    </p>
-    <a href="tips.html">
-  <button>View My Tips</button>
+<div class="radar-bg"></div>
+
+<header class="navbar glass">
+
+<div class="logo">
+✈ NonRev Atlas
+</div>
+
+<nav class="nav-links" id="navLinks">
+
+<a href="#home">Home</a>
+
+<a href="#destinations">Destinations</a>
+
+<a href="#dashboard">Dashboard</a>
+
+<a href="#hubs">Airline Hubs</a>
+
+<a href="#tools">NonRev Tools</a>
+
+<a href="#family">Family Trips</a>
+
+<a href="#favorites">Favorites</a>
+
+<a href="#about">About</a>
+
+</nav>
+
+<div class="nav-actions">
+
+<button id="themeToggle">
+☾
+</button>
+
+<button id="menuBtn">
+☰
+</button>
+
+</div>
+
+</header>
+
+<section class="hero" id="home">
+
+<div class="hero-video-overlay"></div>
+
+<div class="hero-grid">
+
+<div class="hero-left">
+
+<div class="hero-badge">
+AIRLINE FAMILY NONREV PLATFORM
+</div>
+
+<h1>
+Find Your Next
+<span>Standby Adventure</span>
+</h1>
+
+<p>
+Premium nonrev planning built for airline families,
+flight attendants, pilots, and global standby travelers.
+</p>
+
+<div class="hero-search glass">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search airport code or city..."
+/>
+
+<button>
+Search Flights
+</button>
+
+</div>
+
+<div class="hero-buttons">
+
+<a
+href="#destinations"
+class="primary-btn"
+>
+Explore Destinations
 </a>
-  </section>
 
-  <!-- START HERE -->
-  <div class="start-box">
-    <strong>Start Here:</strong>
+<a
+href="#dashboard"
+class="secondary-btn"
+>
+Open Dashboard
+</a>
 
-    <p>
-      1. Read how nonrev works<br>
-      2. Use the checker below<br>
-      3. Always have a backup flight
-    </p>
-  </div>
+<button
+class="primary-btn"
+id="randomTripBtn"
+>
+Random Trip
+</button>
 
-  <!-- WHY I MADE THIS -->
-  <section class="section">
-    <h2>Why I Made This</h2>
+</div>
 
-    <p>
-      I work as a flight attendant, and I realized nonrev travel can
-      be confusing. This is the simple version so you can actually use it confidently.
-    </p>
-  </section>
+<div class="hero-pills">
 
-  <!-- HOW IT WORKS -->
-  <section class="section">
-    <h2>How Nonrev Travel Works</h2>
+<div class="hero-pill glass">
+✈ Standby Ready
+</div>
 
-    <ol>
-      <li>You don’t have a confirmed seat</li>
-      <li>You wait for empty seats</li>
-      <li>You may or may not get on the flight</li>
-    </ol>
-  </section>
+<div class="hero-pill glass">
+🌎 International Routes
+</div>
 
-  <!-- HOW TO USE -->
-  <section class="section">
-    <h2>How To Use It</h2>
+<div class="hero-pill glass">
+🏝 Family Travel
+</div>
 
-    <ol>
-      <li>Pick flexible dates</li>
-      <li>Check how full the flight is</li>
-      <li>Always have a backup flight</li>
-      <li>Get to the airport early</li>
-    </ol>
-  </section>
+<div class="hero-pill glass">
+💺 Live NonRev Planning
+</div>
 
-  <!-- CHECKER -->
-  <section class="section checker">
-    <h2>Check Your Chances</h2>
+</div>
 
-    <form id="checkerForm">
+<div class="stats-grid">
 
-      <label>From:</label>
-      <input type="text" id="from" placeholder="ATL" required />
+<div class="stat-card glass">
 
-      <label>To:</label>
-      <input type="text" id="to" placeholder="MCO" required />
+<h2 id="destinationCount">
+0
+</h2>
 
-      <label>Day:</label>
-      <select id="day">
-        <option value="">Select day</option>
-        <option>Mon</option>
-        <option>Tue</option>
-        <option>Wed</option>
-        <option>Thu</option>
-        <option>Fri</option>
-        <option>Sat</option>
-        <option>Sun</option>
-      </select>
+<p>
+Destinations
+</p>
 
-      <button type="submit">Check</button>
+</div>
 
-    </form>
+<div class="stat-card glass">
 
-    <p id="result"></p>
-  </section>
+<h2>
+8
+</h2>
 
-  <!-- PERSONAL RULES -->
-  <section class="section">
-    <h2>My Personal Rules</h2>
+<p>
+United Hubs
+</p>
 
-    <ul>
-      <li>Never try standby on Sundays if possible</li>
-      <li>Always check flights the night before</li>
-      <li>Have 2 backup flights minimum</li>
-      <li>Early flights are usually easier</li>
-      <li>Be flexible and don’t panic</li>
-    </ul>
-  </section>
+</div>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>Made with ❤️ by your favorite flight attendant</p>
-  </footer>
+<div class="stat-card glass">
 
-  <script src="script.js"></script>
+<h2 id="favoriteCount">
+0
+</h2>
+
+<p>
+Favorites
+</p>
+
+</div>
+
+<div class="stat-card glass">
+
+<h2>
+214
+</h2>
+
+<p>
+Routes
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="hero-right">
+
+<div class="flight-board glass">
+
+<div class="board-header">
+
+<h3>
+DEPARTURES
+</h3>
+
+<div class="board-status">
+LIVE
+</div>
+
+</div>
+
+<div class="board-row">
+
+<span>LAX</span>
+<span>HNL</span>
+<span>ON TIME</span>
+
+</div>
+
+<div class="board-row">
+
+<span>SFO</span>
+<span>HND</span>
+<span>BOARDING</span>
+
+</div>
+
+<div class="board-row">
+
+<span>EWR</span>
+<span>CDG</span>
+<span>STANDBY</span>
+
+</div>
+
+<div class="board-row">
+
+<span>ORD</span>
+<span>LHR</span>
+<span>ON TIME</span>
+
+</div>
+
+</div>
+
+<div class="hero-panels">
+
+<div class="hero-panel glass">
+
+<h4>
+Top Hub Today
+</h4>
+
+<h2>
+DEN
+</h2>
+
+<p>
+Lowest standby pressure
+</p>
+
+</div>
+
+<div class="hero-panel glass">
+
+<h4>
+Best Destination
+</h4>
+
+<h2>
+HNL
+</h2>
+
+<p>
+Strong family standby availability
+</p>
+
+</div>
+
+</div>
+
+<div class="live-clocks glass">
+
+<div class="clock-card">
+
+<span>
+LAX
+</span>
+
+<strong id="laxClock">
+--:--
+</strong>
+
+</div>
+
+<div class="clock-card">
+
+<span>
+NYC
+</span>
+
+<strong id="nyClock">
+--:--
+</strong>
+
+</div>
+
+<div class="clock-card">
+
+<span>
+TYO
+</span>
+
+<strong id="tokyoClock">
+--:--
+</strong>
+
+</div>
+
+</div>
+
+<div class="weather-strip glass">
+
+<div class="weather-item">
+☀️ HNL 82°
+</div>
+
+<div class="weather-item">
+🌧 LHR 67°
+</div>
+
+<div class="weather-item">
+🌤 HND 73°
+</div>
+
+<div class="weather-item">
+🌴 CUN 88°
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="plane plane-1">
+✈
+</div>
+
+<div class="plane plane-2">
+✈
+</div>
+
+</section>
+
+<section class="ticker">
+
+<div class="ticker-track">
+
+✈ STANDBY TRAVEL • FAMILY NONREV • AIRLINE CREW • HUB STRATEGY • STANDBY LOADS • WEATHER TRACKING • AIRPORT LOUNGES • INTERNATIONAL ROUTING • BEACH DESTINATIONS •
+
+</div>
+
+</section>
+
+<section class="ops-bar glass">
+
+<div class="ops-item">
+🟢 Standby Loads Normal
+</div>
+
+<div class="ops-item">
+🟡 Europe Moderate
+</div>
+
+<div class="ops-item">
+🔵 Hawaii Wide Open
+</div>
+
+<div class="ops-item">
+🔴 Orlando Busy
+</div>
+
+</section>
+
+<section class="dashboard-section" id="dashboard">
+
+<div class="section-title">
+
+<h2>
+Flight Operations Dashboard
+</h2>
+
+<p>
+Live airline-style standby planning interface.
+</p>
+
+</div>
+
+<div class="dashboard-grid">
+
+<div class="dashboard-card glass">
+
+<h3>
+Best NonRev Days
+</h3>
+
+<p>
+Tuesday • Wednesday • Saturday
+</p>
+
+</div>
+
+<div class="dashboard-card glass">
+
+<h3>
+Top Hub Today
+</h3>
+
+<p>
+DEN • Lowest standby pressure
+</p>
+
+</div>
+
+<div class="dashboard-card glass">
+
+<h3>
+Beach Picks
+</h3>
+
+<p>
+HNL • CUN • MIA
+</p>
+
+</div>
+
+<div class="dashboard-card glass">
+
+<h3>
+International
+</h3>
+
+<p>
+CDG • LHR • HND
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="route-map-section">
+
+<div class="section-title">
+
+<h2>
+United Route Network
+</h2>
+
+</div>
+
+<div class="route-map glass">
+
+<div class="route-line line-1"></div>
+<div class="route-line line-2"></div>
+<div class="route-line line-3"></div>
+
+<div class="map-point lax">
+LAX
+</div>
+
+<div class="map-point sfo">
+SFO
+</div>
+
+<div class="map-point ord">
+ORD
+</div>
+
+<div class="map-point ewr">
+EWR
+</div>
+
+<div class="map-point hnd">
+HND
+</div>
+
+</div>
+
+</section>
+
+<section class="filters glass">
+
+<h2>
+Destination Filters
+</h2>
+
+<div class="filter-grid">
+
+<select id="regionFilter">
+
+<option value="">
+All Regions
+</option>
+
+<option value="USA">
+USA
+</option>
+
+<option value="Europe">
+Europe
+</option>
+
+<option value="Asia">
+Asia
+</option>
+
+<option value="Oceania">
+Oceania
+</option>
+
+<option value="Caribbean">
+Caribbean
+</option>
+
+</select>
+
+<select id="difficultyFilter">
+
+<option value="">
+Standby Difficulty
+</option>
+
+<option value="Easy">
+Easy
+</option>
+
+<option value="Moderate">
+Moderate
+</option>
+
+<option value="Hard">
+Hard
+</option>
+
+</select>
+
+<select id="typeFilter">
+
+<option value="">
+Travel Type
+</option>
+
+<option value="Beach">
+Beach
+</option>
+
+<option value="City">
+City
+</option>
+
+<option value="Adventure">
+Adventure
+</option>
+
+<option value="Family">
+Family
+</option>
+
+</select>
+
+<button id="favoritesOnly">
+Favorites Only
+</button>
+
+</div>
+
+</section>
+
+<section class="destinations-section" id="destinations">
+
+<div class="section-title">
+
+<h2>
+Popular NonRev Destinations
+</h2>
+
+<p>
+Curated standby destinations for airline families.
+</p>
+
+</div>
+
+<div
+class="destinations-grid"
+id="destinationsGrid"
+></div>
+
+</section>
+
+<section class="recent-section">
+
+<div class="section-title">
+
+<h2>
+Recently Viewed
+</h2>
+
+</div>
+
+<div
+class="recent-grid"
+id="recentGrid"
+>
+
+<div class="recent-card glass">
+Your recent trips will appear here.
+</div>
+
+</div>
+
+</section>
+
+<section class="spotlight-section">
+
+<div class="section-title">
+
+<h2>
+Destination Spotlight
+</h2>
+
+</div>
+
+<div class="spotlight-card glass">
+
+<div class="spotlight-content">
+
+<div>
+
+<h2>
+Tokyo • HND
+</h2>
+
+<p>
+Explore world-class food, incredible transit,
+family attractions, and premium airline routing.
+</p>
+
+<button class="primary-btn">
+Explore Tokyo
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="hubs-section" id="hubs">
+
+<div class="section-title">
+
+<h2>
+United Hub Strategy
+</h2>
+
+</div>
+
+<div class="hub-grid">
+
+<div class="hub-card glass">
+EWR • Newark
+</div>
+
+<div class="hub-card glass">
+ORD • Chicago
+</div>
+
+<div class="hub-card glass">
+DEN • Denver
+</div>
+
+<div class="hub-card glass">
+IAH • Houston
+</div>
+
+<div class="hub-card glass">
+SFO • San Francisco
+</div>
+
+<div class="hub-card glass">
+LAX • Los Angeles
+</div>
+
+<div class="hub-card glass">
+IAD • Washington
+</div>
+
+<div class="hub-card glass">
+GUM • Guam
+</div>
+
+</div>
+
+</section>
+
+<section class="tools-section" id="tools">
+
+<div class="section-title">
+
+<h2>
+NonRev Tools
+</h2>
+
+</div>
+
+<div class="accordion">
+
+<div class="accordion-item glass">
+
+<button class="accordion-header">
+Standby Tips
+</button>
+
+<div class="accordion-content">
+Tuesdays and Wednesdays usually have the best standby loads.
+</div>
+
+</div>
+
+<div class="accordion-item glass">
+
+<button class="accordion-header">
+Connection Strategy
+</button>
+
+<div class="accordion-content">
+Always build 2–3 backup hub routes when traveling internationally.
+</div>
+
+</div>
+
+<div class="accordion-item glass">
+
+<button class="accordion-header">
+Family Travel Tips
+</button>
+
+<div class="accordion-content">
+Bring backup entertainment, chargers, snacks, and flexible expectations.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="family-section" id="family">
+
+<div class="section-title">
+
+<h2>
+Family NonRev Travel
+</h2>
+
+</div>
+
+<div class="family-grid">
+
+<div class="family-card glass">
+
+<h3>
+Traveling With Kids
+</h3>
+
+<p>
+Bring airport games, downloaded movies,
+backup chargers, and snacks.
+</p>
+
+</div>
+
+<div class="family-card glass">
+
+<h3>
+Long-Haul Survival
+</h3>
+
+<p>
+Hydration, compression socks,
+and smart sleep timing help massively.
+</p>
+
+</div>
+
+<div class="family-card glass">
+
+<h3>
+Jet Lag Recovery
+</h3>
+
+<p>
+Sunlight exposure and hydration reset your body faster.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="favorites-section" id="favorites">
+
+<div class="section-title">
+
+<h2>
+Saved Favorites
+</h2>
+
+</div>
+
+<div class="favorites-placeholder glass">
+
+<p>
+No saved favorites yet.
+</p>
+
+</div>
+
+</section>
+
+<section class="about-section" id="about">
+
+<div class="glass about-card">
+
+<div class="about-top">
+
+<div>
+
+<div class="hero-badge">
+PRIVATE FAMILY PLATFORM
+</div>
+
+<h2>
+About NonRev Atlas
+</h2>
+
+</div>
+
+<div class="about-status">
+✈ ACTIVE
+</div>
+
+</div>
+
+<p class="about-description">
+NonRev Atlas is a modern standby travel platform designed
+for airline employees, crew members, and their families.
+Built around flexibility, family adventures, and smart routing,
+it helps simplify the nonrev experience with premium planning tools,
+destination discovery, and airline-focused travel insights.
+</p>
+
+<div class="about-features">
+
+<div class="about-feature">
+🌎 Global Destinations
+</div>
+
+<div class="about-feature">
+✈ Hub Strategy
+</div>
+
+<div class="about-feature">
+💺 Standby Planning
+</div>
+
+<div class="about-feature">
+🏝 Family Travel
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="footer">
+
+<div class="footer-grid">
+
+<div>
+
+<div class="footer-logo">
+✈ NonRev Atlas
+</div>
+
+<p class="footer-text">
+Premium standby travel planning for airline families.
+</p>
+
+</div>
+
+<div class="footer-links">
+
+<a href="#destinations">
+Destinations
+</a>
+
+<a href="#dashboard">
+Dashboard
+</a>
+
+<a href="#tools">
+NonRev Tools
+</a>
+
+<a href="#family">
+Family Trips
+</a>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<p>
+© 2026 NonRev Atlas • Built for airline families
+</p>
+
+</div>
+
+</footer>
+
+<button id="scrollTopBtn">
+↑
+</button>
+
+<div class="modal" id="destinationModal">
+
+<div class="modal-content glass">
+
+<button
+class="close-modal"
+id="closeModal"
+>
+×
+</button>
+
+<div id="modalBody"></div>
+
+</div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
